@@ -1,11 +1,10 @@
-export const config = {
-    port: 3001,
+module.exports  = {
     database: {
-        DATABASE: 'test',
-        USERNAME: 'root',
-        PASSWORD: '',
-        PORT: '3306',
-        HOST: 'localhost'
+        host: 'localhost',
+        user: 'root',
+        password: '',
+        database: 'blog'
     }
 }
+
 

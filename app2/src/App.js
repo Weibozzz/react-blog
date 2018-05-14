@@ -6,6 +6,7 @@ import Admin from './pages/Admin/index';
 import Detail from './pages/Detail/index';
 import {
     BrowserRouter as Router,
+    HashRouter,
     Route,
     Link
 } from 'react-router-dom'
@@ -18,13 +19,13 @@ class App extends Component {
         console.log(this.props)
         return (
             <div className="App">
-                <Router >
+                <HashRouter   >
                     <div>
                         <Route  exact path="/" component={Blog}/>
-                        <Route  path="/Admin" component={Admin}/>
+                        <Route   path="/Admin" component={Admin}/>
                         <Route  path="/Detail/:id" component={Detail}/>
                     </div>
-                </Router>
+                </HashRouter >
             </div>
         );
     }

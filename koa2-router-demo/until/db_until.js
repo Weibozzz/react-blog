@@ -1,86 +1,49 @@
-const allConfig = require("../config/index")
-const config = allConfig.database
-const mysql = require("mysql")
-
+const mysql = require('mysql')
 const pool = mysql.createPool({
-    host     :  config.HOST,
-    user     : config.USERNAME,
-    password : config.PASSWORD,
-    database : config.DATABASE
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'blog'
 })
 
-let query = function( sql, values ) {
-    return new Promise(( resolve, reject ) => {
-        pool.getConnection(function(err, connection) {
-            if (err) {
-                resolve( err )
-            } else {
-                connection.query(sql, values, ( err, rows) => {
-                    if ( err ) {
-                        reject( err )
-                    } else {
-                        resolve( rows )
-                    }
-                    connection.release()
-                })
-            }
+let querySql = ( sql )=> {
+    return new Promise((resolve, reject) => {
+        pool.getConnection((err, connection) => {
+            // Use the connection
+            connection.query(sql, (error, results, fields) => {
+                // And done with the connection.
+                resolve(JSON.stringify(results))
+                connection.release()
+                // Handle error after the release.
+                if (error) throw error
+            })
         })
     })
 }
 
-let createTable = function( sql ) {
-    return query( sql, [] )
+
+
+
+
+let getBlogSql=(startIndex,pageNum)=>{
+    return "select `id`,`title`,`user`,`createTime`,week,`visitor`,`like`,`img`,`type` from article2 order by " +
+        "createTime desc limit "+startIndex+","+pageNum+"";
 }
-
-
-let findDataById = function( table,  id ) {
-    let  _sql =  "SELECT * FROM ?? WHERE id = ? "
-    return query( _sql, [ table, id, start, end ] )
+let getDetailSql=(id)=>{
+    return "select * from article2 where id="+id+"";
 }
-
-
-let findDataByPage = function( table, keys, start, end ) {
-    let  _sql =  "SELECT ?? FROM ??  LIMIT ? , ?"
-    return query( _sql, [keys,  table,  start, end ] )
+let getTotalSql=()=>{
+    return "select count(*) as 'total' from article2";
 }
+const getURLParameters = url =>
+    url.match(/([^?=&]+)(=([^&]*))/g).reduce(
+        (a, v) => (a[v.slice(0, v.indexOf('='))] = v.slice(v.indexOf('=') + 1), a), {}
+    )
 
-
-let insertData = function( table, values ) {
-    let _sql = "INSERT INTO ?? SET ?"
-    return query( _sql, [ table, values ] )
-}
-
-
-let updateData = function( table, values, id ) {
-    let _sql = "UPDATE ?? SET ? WHERE id = ?"
-    return query( _sql, [ table, values, id ] )
-}
-
-
-let deleteDataById = function( table, id ) {
-    let _sql = "DELETE FROM ?? WHERE id = ?"
-    return query( _sql, [ table, id ] )
-}
-
-
-let select = function( table, keys ) {
-    let  _sql =  "SELECT ?? FROM ?? "
-    return query( _sql, [ keys, table ] )
-}
-
-let count = function( table ) {
-    let  _sql =  "SELECT COUNT(*) AS total_count FROM ?? "
-    return query( _sql, [ table ] )
-}
-
-export {
-    query,
-    createTable,
-    findDataById,
-    findDataByPage,
-    deleteDataById,
-    insertData,
-    updateData,
-    select,
-    count,
+module.exports = {
+    querySql,
+    getBlogSql,
+    getDetailSql,
+    getTotalSql,
+    getURLParameters
 }
