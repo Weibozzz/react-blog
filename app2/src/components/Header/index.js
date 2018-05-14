@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Layout, Menu, Breadcrumb, Row, Col} from 'antd';
 import {
     BrowserRouter as Router,
+    HashRouter,
     Route,
     Link
 } from 'react-router-dom'
@@ -16,7 +17,7 @@ class TopNav extends Component {
                     <Row>
                         <Col span={2}></Col>
                         <Col span={17}>
-                            <Router>
+                            <HashRouter>
                                 <Menu
                                     theme="dark"
                                     mode="horizontal"
@@ -30,17 +31,17 @@ class TopNav extends Component {
                                     </Menu.Item>
                                     <Menu.Item key="3">
 
-                                        <Link to="/Detail">
+                                        <Link to="/">
                                             前端技术
                                         </Link>
                                     </Menu.Item>
                                     <Menu.Item key="4">生活与创作</Menu.Item>
                                     <Menu.Item key="5">建议与反馈</Menu.Item>
                                 </Menu>
-                            </Router>
+                            </HashRouter>
                         </Col>
                         <Col span={3}>
-                            <Router>
+                            <HashRouter>
                                 <Menu
                                     theme="dark"
                                     mode="horizontal"
@@ -54,7 +55,7 @@ class TopNav extends Component {
                                     </Menu.Item>
                                     <Menu.Item key="7">注册</Menu.Item>
                                 </Menu>
-                            </Router>
+                            </HashRouter>
                         </Col>
                         <Col span={2}/>
                     </Row>

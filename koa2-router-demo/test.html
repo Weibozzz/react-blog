@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    var arr = [
+        {
+            id:1,
+            title:234
+        }
+    ];
+    console.log(arr.map((v,i)=>{
+       console.log( Object.keys(v))
+        Object.keys(v).forEach(s=>{
+            console.log(arr[i][s])
+        })
+    }))
+</script>
+</body>
+</html>

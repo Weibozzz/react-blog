@@ -47,6 +47,13 @@ class Detail extends Component {
                         <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
                             <h2>{title}</h2>
                             <Divider/>
+                            <ul className="clearfix">
+                                <li className="fl">发布时间:{createTime}{week}</li>
+                                <li className="fl">作者：{user}</li>
+                                <li className="fl">浏览次数：{visitor}</li>
+                                <li className="fl">最后修改：{lastModify}</li>
+                                <li className="fl">修改次数：{modifyCount}</li>
+                            </ul>
                             <div
                                 dangerouslySetInnerHTML={{__html:decodeURIComponent(content)}}
                             ></div>

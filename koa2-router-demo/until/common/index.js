@@ -20,30 +20,11 @@ let querySql = ( sql )=> {
         })
     })
 }
-
-
-
-
-
-let getBlogSql=(startIndex,pageNum)=>{
-    return "select `id`,`title`,`user`,`createTime`,week,`visitor`,`like`,`img`,`type` from article2 order by " +
-        "createTime desc limit "+startIndex+","+pageNum+"";
-}
-let getDetailSql=(id)=>{
-    return "select * from article2 where id="+id+"";
-}
-let getTotalSql=()=>{
-    return "select count(*) as 'total' from article2";
-}
 const getURLParameters = url =>
     url.match(/([^?=&]+)(=([^&]*))/g).reduce(
         (a, v) => (a[v.slice(0, v.indexOf('='))] = v.slice(v.indexOf('=') + 1), a), {}
     )
-
 module.exports = {
     querySql,
-    getBlogSql,
-    getDetailSql,
-    getTotalSql,
     getURLParameters
 }

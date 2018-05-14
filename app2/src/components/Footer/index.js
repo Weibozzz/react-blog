@@ -5,7 +5,8 @@ class blogFooter extends Component {
     render() {
         return (
             <Footer style={{ textAlign: 'center' }}>
-                Ant Design ©2016 Created by Ant UED
+                <p> Power & Designed by liuweibo</p>
+                <p>© 2017   陕ICP备17015350号</p>
             </Footer>
         );
     }

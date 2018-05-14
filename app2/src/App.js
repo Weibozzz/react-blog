@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import Blog from './pages/Blog/index';
 import Admin from './pages/Admin/index';
 import Detail from './pages/Detail/index';
+import AdminDetail from './pages/AdminDetail/index';
 import {
     BrowserRouter as Router,
     HashRouter,
@@ -24,6 +25,8 @@ class App extends Component {
                         <Route  exact path="/" component={Blog}/>
                         <Route   path="/Admin" component={Admin}/>
                         <Route  path="/Detail/:id" component={Detail}/>
+                        <Route  path="/Detail/:id" component={Detail}/>
+                        <Route  path="/AdminDetail/:id" component={AdminDetail}/>
                     </div>
                 </HashRouter >
             </div>

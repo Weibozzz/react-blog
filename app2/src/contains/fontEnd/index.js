@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { asyncTest, getDetail, getTotal } from '../../actions'
-
-export const domain = 'http://localhost:7654';
+import {domain} from '../common';
 export const getBlogUrl = domain+'/getBlog'
 export const getTotalUrl = domain+'/total'
 export const getDetailUrl = domain+'/detail'

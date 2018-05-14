@@ -1,1 +1,19 @@
 @import '~antd/dist/antd.css';
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.clearfix:after{
+    content: '';
+    clear: both;
+    display: block;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
