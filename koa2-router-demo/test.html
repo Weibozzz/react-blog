@@ -7,11 +7,8 @@
 <body>
 
 <script>
-
-    var str='ndsakfjk"lsdfmk"';
-    console.log(str.replace(/\d/,function (e) {
-        console.log(e)
-    }))
+    const spaceAdd = str=>str.replace(/\+/g,'&nbsp;')
+    console.log(spaceAdd('dsjfj+kdjsj+'))
 </script>
 </body>
 </html>

@@ -9,8 +9,10 @@ import axios from 'axios'
 import marked from 'marked'
 import {getDetailData, getDetailUrl} from '../../contains/fontEnd'
 import {postAdminDetailData,postAdminDetailUrl} from '../../contains/backEnd'
+import {updateHtml,spaceAdd} from '../../until';
 
 var html2markdown = require('html2markdown');
+var converter = require('html-to-markdown');
 const {Content} = Layout;
 const TabPane = Tabs.TabPane;
 
@@ -18,30 +20,37 @@ class AdminDetail extends Component {
     constructor() {
         super()
         this.state = {
-            previewContent: ''
+            previewContent: '',
+            previewHtmlContent:'',
+            txt:'该文档不支持html-to-markdown'
         }
     }
 
     componentWillMount() {
         let {id} = this.props.match.params;
         this.props.dispatch(getDetailData(`${getDetailUrl}?id=${id}`))
+        
     }
 
     onContentChange(e) {
+        if(!this.state.isSupport)return;
+        let str = marked(e.target.innerText, {breaks: true});
         this.setState({
-            previewContent: marked(e.target.innerText, {breaks: true})
+            previewContent: str,
+            previewHtmlContent:decodeURIComponent(str),
         })
     }
     onEditDetail(){
         let {id} = this.props.match.params;
-        console.log(this.refs.textHtml.innerText)
-        // console.log(Object.prototype.toString.call(this.textHtml))
-        // this.props.dispatch(postAdminDetailData(postAdminDetailUrl,{content:encodeURIComponent(this.refs.textHtml).innerText,id:id}))
-        // this.props.dispatch(postAdminDetailData(postAdminDetailUrl,{content:encodeURIComponent(this.refs.textHtml.innerText),id:id}))
+        let txt = this.refs.textHtml.innerText;
+        if(txt===''||txt===this.state.txt)return;
+        alert('不能提交')
+        this.props.dispatch(postAdminDetailData(postAdminDetailUrl,{content:encodeURIComponent(updateHtml(txt)),id:id}))
     }
 
     render() {
-        const {
+        
+        let {
             content,
             createTime,
             id,
@@ -58,6 +67,22 @@ class AdminDetail extends Component {
             visitor,
             week
         } = this.props.detail && this.props.detail[0] ? this.props.detail[0] : {};
+        content=content?decodeURIComponent(content):'正在加载......';
+        let cont={
+            txt:this.state.txt,
+            isSupport:false
+        };
+        try {
+            cont={
+                txt:html2markdown(content),
+                isSupport:true
+            }
+        } catch (err) {
+            cont={
+                txt:this.state.txt,
+                isSupport:false
+            }
+        }
         return (
             <div className="AdminDetail">
                 <Header/>
@@ -69,20 +94,20 @@ class AdminDetail extends Component {
                             <Breadcrumb.Item>App</Breadcrumb.Item>
                         </Breadcrumb>
                         <div style={{background: '#fff', padding: 24, minHeight: 380}}>
-                            <h2>AdminDetail</h2>
+                            <h2>文章管理</h2>
                             <Divider/>
                             <Tabs>
                                 <TabPane tab="marked" key="1">
                                     <div style={{minHeight: '100px', border: '1px solid'}}
                                          contentEditable="plaintext-only"
-                                         onInput={this.onContentChange.bind(this)}>{html2markdown(decodeURIComponent(content))}</div>
+                                         onInput={this.onContentChange.bind(this)}>{cont.txt}</div>
                                 </TabPane>
                                 <TabPane tab="预览" key="2">
                                     <div dangerouslySetInnerHTML={{__html: this.state.previewContent}}></div>
                                 </TabPane>
                                 <TabPane tab="html" key="3">
-                                    <Button onClick={this.onEditDetail.bind(this)} type="primary">修改</Button>
-                                    <div ref="textHtml">{decodeURIComponent(content)}</div>
+                                    <Button onClick={this.onEditDetail.bind(this)}  type={cont.isSupport?"primary":"danger"}>修改</Button>
+                                    <div ref="textHtml">{this.state.previewHtmlContent}</div>
                                 </TabPane>
                             </Tabs>
                         </div>
@@ -98,7 +123,6 @@ const select = (state) => {
     console.log(state)
     return {
         detail: state.detail,
-        adminDetail:state.adminDetail
     }
 }
 export default connect(select)(AdminDetail);

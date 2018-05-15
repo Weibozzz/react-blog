@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { getDetail } from '../../actions'
+import {spaceAdd} from '../../until';
 
 import {getDetailData,getDetailUrl} from '../../contains/fontEnd'
 const {  Content } = Layout;
@@ -54,7 +55,7 @@ class Detail extends Component {
                                 <li className="fl">修改次数：{modifyCount}</li>
                             </ul>
                             <div
-                                dangerouslySetInnerHTML={{__html:decodeURIComponent(content)}}
+                                dangerouslySetInnerHTML={{__html:decodeURIComponent(spaceAdd(content))}}
                             ></div>
                         </div>
                     </Content>
@@ -65,7 +66,6 @@ class Detail extends Component {
     }
 }
 const select = (state) => {
-    console.log(state)
     return {
         detail:state.detail
     }

@@ -6,10 +6,10 @@ const {
     getDetailSql,
     getTotalSql,
     getURLParameters,
-    postAdminDetailSql
 } =require('../until/frontEnd');
 const {
-    getAdminBlogSql
+    getAdminBlogSql,
+    postAdminDetailSql
 } =require('../until/backEnd');
 
 
@@ -28,17 +28,19 @@ router.get('/total', async (ctx, next) => {
         ctx.body = data
     })
 })
+const spaceAdd = str=>str&&str.replace(/\+/g,'&nbsp;')
 router.get('/detail', async (ctx, next) => {
     ctx.set('Access-Control-Allow-Origin', '*')
     let {id} = getURLParameters(ctx.originalUrl)
     await querySql(getDetailSql(id)).then((data) => {
-        ctx.body = data
+        ctx.body = spaceAdd(data)
     })
 })
 router.get('/getAdminBlog', async (ctx, next) => {
     ctx.set('Access-Control-Allow-Origin', '*')
-    let {num} = getURLParameters(ctx.originalUrl);
-    await querySql(getAdminBlogSql(num)).then((data) => {
+    let {num, pageNum} = getURLParameters(ctx.originalUrl)
+    let startIndex = pageNum * (num - 1)
+    await querySql(getAdminBlogSql(startIndex,pageNum)).then((data) => {
         ctx.body = data
     })
 })
@@ -48,9 +50,9 @@ router.post('/postAdminDetail',async  (ctx, next) => {
     console.log(ctx.request.body)
     let {id,content}=JSON.parse(Object.keys(ctx.request.body)[0])
     console.log(content,id)
-    // await querySql(postAdminDetailSql(content,id)).then((data) => {
-    //     ctx.body = data
-    // })
+    await querySql(postAdminDetailSql(content,id)).then((data) => {
+        ctx.body = data
+    })
 })
 
 module.exports = router

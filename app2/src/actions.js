@@ -22,6 +22,7 @@ export const getTotal = data =>{
     }
 };
 export const getDetail = data =>{
+    console.log(data)
     return {
         type:GET_DETAIL,
         data

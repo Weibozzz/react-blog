@@ -23,7 +23,6 @@ export const getTotalData =(url)=> {
 export const getDetailData= (url)=> {
     return dispatch => {
         axios.get(url).then(res => {
-            console.log(res.data)
             dispatch(getDetail(res.data))
         })
     }
