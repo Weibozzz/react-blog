@@ -6,7 +6,6 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { getDetail } from '../../actions'
 
-import axios from 'axios'
 import {getDetailData,getDetailUrl} from '../../contains/fontEnd'
 const {  Content } = Layout;
 
@@ -47,7 +46,7 @@ class Detail extends Component {
                         <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
                             <h2>{title}</h2>
                             <Divider/>
-                            <ul className="clearfix">
+                            <ul className="clearfix" >
                                 <li className="fl">发布时间:{createTime}{week}</li>
                                 <li className="fl">作者：{user}</li>
                                 <li className="fl">浏览次数：{visitor}</li>

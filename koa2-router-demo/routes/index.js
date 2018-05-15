@@ -5,7 +5,8 @@ const {
     getBlogSql,
     getDetailSql,
     getTotalSql,
-    getURLParameters
+    getURLParameters,
+    postAdminDetailSql
 } =require('../until/frontEnd');
 const {
     getAdminBlogSql
@@ -40,6 +41,16 @@ router.get('/getAdminBlog', async (ctx, next) => {
     await querySql(getAdminBlogSql(num)).then((data) => {
         ctx.body = data
     })
+})
+router.post('/postAdminDetail',async  (ctx, next) => {
+    ctx.set('Access-Control-Allow-Origin', '*')
+    console.log(Object.keys(ctx.request.body)[0])
+    console.log(ctx.request.body)
+    let {id,content}=JSON.parse(Object.keys(ctx.request.body)[0])
+    console.log(content,id)
+    // await querySql(postAdminDetailSql(content,id)).then((data) => {
+    //     ctx.body = data
+    // })
 })
 
 module.exports = router

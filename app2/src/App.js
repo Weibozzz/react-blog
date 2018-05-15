@@ -34,7 +34,6 @@ class App extends Component {
     }
 }
 const select = (state) => {
-    console.log(state)
     return {
         testAsync:state.testAsync
     }

@@ -4,6 +4,9 @@ export const GET_TOTAL = 'GET_TOTAL';
 export const GET_DETAIL = 'GET_DETAIL';
 export const GET_ADMIN_BLOG = 'GET_ADMIN_BLOG';
 
+export const POST_ADMIN_DETAIL = 'POST_ADMIN_DETAIL';
+
+
 // 异步请求
 
 export const asyncTest = data =>{
@@ -27,6 +30,12 @@ export const getDetail = data =>{
 export const getAdminBlog = data =>{
     return {
         type:GET_ADMIN_BLOG,
+        data
+    }
+};
+export const postAdminDetail = data =>{
+    return {
+        type:POST_ADMIN_DETAIL,
         data
     }
 };

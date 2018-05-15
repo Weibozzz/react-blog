@@ -4,7 +4,7 @@
 * 返回新状态
 */
 import { combineReducers } from 'redux'
-import { TEST_ASYNC,GET_TOTAL,GET_DETAIL,GET_ADMIN_BLOG } from './actions'
+import { TEST_ASYNC,GET_TOTAL,GET_DETAIL,GET_ADMIN_BLOG,POST_ADMIN_DETAIL } from './actions'
 
 // 异步
 const testAsync = (state=[],action)=>{
@@ -40,12 +40,21 @@ const adminBlog = (state=[],action)=>{
             return state
     }
 }
+const adminDetail = (state=[],action)=>{
+    switch (action.type) {
+        case POST_ADMIN_DETAIL:
+            return action.data
+        default:
+            return state
+    }
+}
 // 不同响应合并成一个reducer
 const myBlog = combineReducers({
     testAsync,
     total,
     detail,
-    adminBlog
+    adminBlog,
+    adminDetail
 })
 
 export default myBlog
