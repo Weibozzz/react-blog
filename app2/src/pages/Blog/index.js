@@ -123,7 +123,13 @@ class Blog extends Component {
                                 <Search placeholder="input search text" onSearch={this.onSearch.bind(this)} enterButton="Search" size="large" />
                             </Col>
                             <Col className="gutter-row" span={2}>
-                                <Button size="large" type="primary">发布文章</Button>
+                                <HashRouter >
+                                    <div>
+                                        <Link to={`/PostArticle`}>
+                                            <Button size="large" type="primary">发布文章</Button>
+                                        </Link>
+                                    </div>
+                                </HashRouter>
                             </Col>
                         </Row>
                         <div style={{background: '#fff', padding: 24, minHeight: 380}}>

@@ -6,8 +6,9 @@ const getBlogSql=(type,startIndex,pageNum,wd)=>{
         return "select `id`,`title`,`user`,`createTime`,week,`visitor`,`like`,`img`,`type` from article2 order by " +
             "createTime desc limit "+startIndex+","+pageNum+"";
     }else if(type === "title"){
+        console.log(wd)
         return "select `id`,`title`,`user`,`createTime`,week,`visitor`,`like`,`img`,`type` from article2" +
-            " where title like '%"+wd+"%' order by createTime desc limit "+startIndex+","+pageNum+"";
+            " where title like '%"+decodeURIComponent(wd)+"%' order by createTime desc limit "+startIndex+","+pageNum+"";
     }else{
         return  "select `id`,`title`,`user`,`createTime`,week,`visitor`,`like`,`img`,`type` from article2" +
             " where type='"+type+"' order by createTime desc limit "+startIndex+","+pageNum+"";
@@ -28,11 +29,18 @@ const getTotalSql=(type,wd)=>{
 
 }
 
+const postArticleSql =(title,url,content,user,type,short)=>{
+    let cteateTime = Date.now();
+    return "insert into article2(title,url,content,createTime,user,`type`,img,short,week) " +
+        "values('"+title+"','"+url+"','"+content+"','"+cteateTime+"','"+user+"','"+type+"','"+short+"')";
+}
+
 
 module.exports = {
     querySql,
     getBlogSql,
     getDetailSql,
     getTotalSql,
+    postArticleSql,
     getURLParameters
 }

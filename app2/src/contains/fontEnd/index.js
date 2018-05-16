@@ -1,9 +1,10 @@
 import axios from 'axios';
-import { asyncTest, getDetail, getTotal } from '../../actions'
+import {asyncTest, getDetail, getTotal, postAdminDetail, postArticle} from '../../actions'
 import {domain} from '../common';
 export const getBlogUrl = domain+'/getBlog'
 export const getTotalUrl = domain+'/total'
 export const getDetailUrl = domain+'/detail'
+export const postArticleUrl = domain+'/postArticle'
 
 
 export const getBlogData = url=>{
@@ -27,6 +28,13 @@ export const getDetailData= (url)=> {
         })
     }
 }
+export const postArticleData = (url,data)=>{
+    return dispatch => {
+        axios.post(url,JSON.stringify(data)).then(res => {
+            dispatch(postArticle(res.data))
+        })
+    }
+}
 export const _getTotalData= (_this,url,type,val)=> {
     return val
         ? _this.props.dispatch(getTotalData(`${url}?type=${type}&wd=${val}`))
@@ -38,3 +46,4 @@ export const _getBlogData= (_this,url,type,num,pageNum,val)=> {
         ?_this.props.dispatch(getBlogData(`${url}?type=${type}&num=${num}&pageNum=${pageNum}&wd=${val}`))
         :_this.props.dispatch(getBlogData(`${url}?type=${type}&num=${num}&pageNum=${pageNum}`))
 }
+

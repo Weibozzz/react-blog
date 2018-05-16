@@ -5,6 +5,7 @@ export const GET_DETAIL = 'GET_DETAIL';
 export const GET_ADMIN_BLOG = 'GET_ADMIN_BLOG';
 
 export const POST_ADMIN_DETAIL = 'POST_ADMIN_DETAIL';
+export const POST_ARTICLE = 'POST_ARTICLE';
 
 
 // 异步请求
@@ -37,6 +38,12 @@ export const getAdminBlog = data =>{
 export const postAdminDetail = data =>{
     return {
         type:POST_ADMIN_DETAIL,
+        data
+    }
+};
+export const postArticle = data =>{
+    return {
+        type:POST_ARTICLE,
         data
     }
 };

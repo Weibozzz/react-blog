@@ -10,6 +10,7 @@ import marked from 'marked'
 import {getDetailData, getDetailUrl} from '../../contains/fontEnd'
 import {postAdminDetailData,postAdminDetailUrl} from '../../contains/backEnd'
 import {updateHtml,spaceAdd,NbspToSpace} from '../../until';
+import Markeder from '../../components/Markeder';
 
 var html2markdown = require('html2markdown');
 var converter = require('html-to-markdown');
@@ -23,44 +24,24 @@ class AdminDetail extends Component {
             previewContent: '',
             previewHtmlContent:'',
             txt:'该文档不支持html-to-markdown',
-            isSupport:true
+            isSupport:true,
+            id:''
         }
     }
 
     componentWillMount() {
         let {id} = this.props.match.params;
         this.props.dispatch(getDetailData(`${getDetailUrl}?id=${id}`))
-
+        console.log(this.props)
     }
 
-    onContentChange(e) {
-        if(!this.state.isSupport)return;
-        let str = marked(e.target.innerText, {breaks: true});
-        this.setState({
-            previewContent: str,
-            previewHtmlContent:decodeURIComponent(str),
-        })
-    }
-    onSubmitDetail(){
-        let {id} = this.props.match.params;
-        let txt = this.refs.textHtml.innerText;
-        if(txt===''||txt===this.state.txt){
-            alert('不能提交')
-            return;
-        }
-        alert('修改成功')
-        this.props.dispatch(postAdminDetailData(postAdminDetailUrl,{content:encodeURIComponent(updateHtml(txt)),id:id}))
-    }
 
     render() {
 
         let {content,createTime,id,img, lastModify, like, modifyCount, recommend, short, title, type, url, user, visitor, week} =
             this.props.detail && this.props.detail[0] ? this.props.detail[0] : {};
         content=content?decodeURIComponent(content):'正在加载......';
-        let cont={
-            txt:this.state.txt,
-            isSupport:false
-        };
+        let cont={};
         try {
             cont={
                 txt:html2markdown(NbspToSpace(content)),
@@ -85,20 +66,8 @@ class AdminDetail extends Component {
                         <div style={{background: '#fff', padding: 24, minHeight: 380}}>
                             <h2>{title}</h2>
                             <Divider/>
-                            <Tabs>
-                                <TabPane tab="marked" key="1">
-                                    <div style={{minHeight: '100px', border: '1px solid'}}
-                                         contentEditable="plaintext-only"
-                                         onInput={this.onContentChange.bind(this)}>{cont.txt}</div>
-                                </TabPane>
-                                <TabPane tab="预览" key="2">
-                                    <div dangerouslySetInnerHTML={{__html: this.state.previewContent}}></div>
-                                </TabPane>
-                                <TabPane tab="html" key="3">
-                                    <Button onClick={this.onSubmitDetail.bind(this)}  type={cont.isSupport?"primary":"danger"}>修改</Button>
-                                    <div ref="textHtml">{this.state.previewHtmlContent}</div>
-                                </TabPane>
-                            </Tabs>
+                            {/*<Markeder  />*/}
+                            <Markeder {...Object.assign({},this.state,cont,this.props)} />
                         </div>
                     </Content>
                 </Layout>
@@ -109,7 +78,6 @@ class AdminDetail extends Component {
 }
 
 const select = (state) => {
-    console.log(state)
     return {
         detail: state.detail,
     }
