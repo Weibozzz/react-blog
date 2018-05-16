@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {Tabs,Button,Input} from 'antd';
+import {Tabs,Button,Input,message} from 'antd';
 import {NbspToSpace, updateHtml} from "../../until";
 import {connect} from 'react-redux'
 import {getDetailData, getDetailUrl,postArticleData,postArticleUrl} from "../../contains/fontEnd";
@@ -44,19 +44,28 @@ class MarkedComponent extends Component{
         let {id} = this.props;
         let txt = this.refs.textHtml.innerText;
         if(/AdminDetail/.test(pathname)){
-            console.log('这是修改文章')
+            message.success('这是修改文章')
 
             if(txt===''||txt===this.state.txt){
-                alert('不能提交')
+                message.error('不能提交')
                 return;
             }
-            alert('不一定修改成功，待检测')
+            message.warning('不一定修改成功，待检测')
             this.props.dispatch(postAdminDetailData(postAdminDetailUrl,{content:encodeURIComponent(updateHtml(txt)),id:id}))
         }else if(/PostArticle/.test(pathname)){
-            console.log('这是发表文章')
-            this.props.dispatch(postArticleData(postArticleUrl,{title:"测试title",url:"测试url",content:"测试文章",user:"测试用户",type:"ceshi",short:"测试剪短介绍"}))
+            message.success('这是发表文章')
+            console.log(this.props)
+            let {selectVal,
+                titleVal,
+                shortVal,
+                urlVal}=this.props;
+            if(selectVal===''||titleVal===''||shortVal===''||urlVal===''||txt===''){
+                message.error('空值不能提交')
+                return
+            }
+            this.props.dispatch(postArticleData(postArticleUrl,{title:titleVal,url:urlVal,content:encodeURIComponent(updateHtml(txt)),user:"测试用户",type:selectVal,short:shortVal}))
         }else {
-            console.log('不知道在做什么文章')
+            message.warning('不知道在做什么文章')
         }
     }
     render(){

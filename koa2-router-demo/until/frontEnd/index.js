@@ -30,8 +30,9 @@ const getTotalSql=(type,wd)=>{
 }
 
 const postArticleSql =(title,url,content,user,type,short)=>{
-    let cteateTime = Date.now();
-    return "insert into article2(title,url,content,createTime,user,`type`,img,short,week) " +
+    let cteateTime = Date.now()/1000|0;
+    console.log(cteateTime)
+    return "insert into article2(title,url,content,createTime,user,`type`,short) " +
         "values('"+title+"','"+url+"','"+content+"','"+cteateTime+"','"+user+"','"+type+"','"+short+"')";
 }
 

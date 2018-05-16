@@ -35,7 +35,11 @@ class TopNav extends Component {
                                             前端技术
                                         </Link>
                                     </Menu.Item>
-                                    <Menu.Item key="4">生活与创作</Menu.Item>
+                                    <Menu.Item key="4">
+                                        <Link to="/Admin">
+                                            生活与创作
+                                        </Link>
+                                    </Menu.Item>
                                     <Menu.Item key="5">建议与反馈</Menu.Item>
                                 </Menu>
                             </HashRouter>
@@ -49,11 +53,10 @@ class TopNav extends Component {
                                     style={{lineHeight: '64px'}}
                                 >
                                     <Menu.Item key="6">
-                                        <Link to="/Admin">
+                                        <Link to="/Login">
                                             登录
                                         </Link>
                                     </Menu.Item>
-                                    <Menu.Item key="7">注册</Menu.Item>
                                 </Menu>
                             </HashRouter>
                         </Col>

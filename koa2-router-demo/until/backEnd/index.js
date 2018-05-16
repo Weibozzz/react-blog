@@ -7,7 +7,7 @@ const getAdminBlogSql=(type,startIndex,pageNum,wd)=>{
             " order by concat(modifyCount,createTime) desc limit "+startIndex+","+pageNum+"";
     }else if(type === "title"){
         return "select `id`,`title`,`user`,`createTime`,week,`visitor`,`like`,`img`,`type` from article2" +
-            " where title like '%"+wd+"%' order by concat(modifyCount,createTime)  desc limit "+startIndex+","+pageNum+"";
+            " where title like '%"+decodeURIComponent(wd)+"%' order by concat(modifyCount,createTime)  desc limit "+startIndex+","+pageNum+"";
     }else{
         return  "select `id`,`title`,`user`,`createTime`,week,`visitor`,`like`,`img`,`type` from article2" +
             " where type='"+type+"' order by concat(modifyCount,createTime)  desc limit "+startIndex+","+pageNum+"";
