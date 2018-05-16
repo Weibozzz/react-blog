@@ -27,3 +27,14 @@ export const getDetailData= (url)=> {
         })
     }
 }
+export const _getTotalData= (_this,url,type,val)=> {
+    return val
+        ? _this.props.dispatch(getTotalData(`${url}?type=${type}&wd=${val}`))
+        :_this.props.dispatch(getTotalData(`${url}?type=${type}`))
+}
+
+export const _getBlogData= (_this,url,type,num,pageNum,val)=> {
+    return val
+        ?_this.props.dispatch(getBlogData(`${url}?type=${type}&num=${num}&pageNum=${pageNum}&wd=${val}`))
+        :_this.props.dispatch(getBlogData(`${url}?type=${type}&num=${num}&pageNum=${pageNum}`))
+}

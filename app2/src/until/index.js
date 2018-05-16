@@ -13,8 +13,9 @@ export const updateHtml=str=>{
         }else if(str==='[') {
             return  '&#93;'
         }else {
-          return '&#183;'
+            return '&#183;'
         }
     });
 }
 export const spaceAdd = str=>str&&str.replace(/\+/g,'&nbsp;')
+export const NbspToSpace = str=>str&&str.replace(/&nbsp;/g,'　')

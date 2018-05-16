@@ -9,7 +9,7 @@ import axios from 'axios'
 import marked from 'marked'
 import {getDetailData, getDetailUrl} from '../../contains/fontEnd'
 import {postAdminDetailData,postAdminDetailUrl} from '../../contains/backEnd'
-import {updateHtml,spaceAdd} from '../../until';
+import {updateHtml,spaceAdd,NbspToSpace} from '../../until';
 
 var html2markdown = require('html2markdown');
 var converter = require('html-to-markdown');
@@ -22,14 +22,15 @@ class AdminDetail extends Component {
         this.state = {
             previewContent: '',
             previewHtmlContent:'',
-            txt:'该文档不支持html-to-markdown'
+            txt:'该文档不支持html-to-markdown',
+            isSupport:true
         }
     }
 
     componentWillMount() {
         let {id} = this.props.match.params;
         this.props.dispatch(getDetailData(`${getDetailUrl}?id=${id}`))
-        
+
     }
 
     onContentChange(e) {
@@ -40,33 +41,21 @@ class AdminDetail extends Component {
             previewHtmlContent:decodeURIComponent(str),
         })
     }
-    onEditDetail(){
+    onSubmitDetail(){
         let {id} = this.props.match.params;
         let txt = this.refs.textHtml.innerText;
-        if(txt===''||txt===this.state.txt)return;
-        alert('不能提交')
+        if(txt===''||txt===this.state.txt){
+            alert('不能提交')
+            return;
+        }
+        alert('修改成功')
         this.props.dispatch(postAdminDetailData(postAdminDetailUrl,{content:encodeURIComponent(updateHtml(txt)),id:id}))
     }
 
     render() {
-        
-        let {
-            content,
-            createTime,
-            id,
-            img,
-            lastModify,
-            like,
-            modifyCount,
-            recommend,
-            short,
-            title,
-            type,
-            url,
-            user,
-            visitor,
-            week
-        } = this.props.detail && this.props.detail[0] ? this.props.detail[0] : {};
+
+        let {content,createTime,id,img, lastModify, like, modifyCount, recommend, short, title, type, url, user, visitor, week} =
+            this.props.detail && this.props.detail[0] ? this.props.detail[0] : {};
         content=content?decodeURIComponent(content):'正在加载......';
         let cont={
             txt:this.state.txt,
@@ -74,7 +63,7 @@ class AdminDetail extends Component {
         };
         try {
             cont={
-                txt:html2markdown(content),
+                txt:html2markdown(NbspToSpace(content)),
                 isSupport:true
             }
         } catch (err) {
@@ -94,7 +83,7 @@ class AdminDetail extends Component {
                             <Breadcrumb.Item>App</Breadcrumb.Item>
                         </Breadcrumb>
                         <div style={{background: '#fff', padding: 24, minHeight: 380}}>
-                            <h2>文章管理</h2>
+                            <h2>{title}</h2>
                             <Divider/>
                             <Tabs>
                                 <TabPane tab="marked" key="1">
@@ -106,7 +95,7 @@ class AdminDetail extends Component {
                                     <div dangerouslySetInnerHTML={{__html: this.state.previewContent}}></div>
                                 </TabPane>
                                 <TabPane tab="html" key="3">
-                                    <Button onClick={this.onEditDetail.bind(this)}  type={cont.isSupport?"primary":"danger"}>修改</Button>
+                                    <Button onClick={this.onSubmitDetail.bind(this)}  type={cont.isSupport?"primary":"danger"}>修改</Button>
                                     <div ref="textHtml">{this.state.previewHtmlContent}</div>
                                 </TabPane>
                             </Tabs>

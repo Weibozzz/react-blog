@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Layout, Menu, Breadcrumb, Row, Col } from 'antd'
-import { List, Avatar, Icon,Pagination,Alert   } from 'antd'
+import { List, Avatar, Icon,Pagination,Alert,Input,Button   } from 'antd'
 import { connect } from 'react-redux'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
@@ -12,10 +12,11 @@ import {
 } from 'react-router-dom'
 import { asyncTest,getTotal } from '../../actions'
 import 'whatwg-fetch'
-import {getBlogUrl,getTotalUrl,getBlogData,getTotalData} from '../../contains/fontEnd'
+import {getBlogUrl,getTotalUrl,getBlogData,getTotalData,_getTotalData,_getBlogData} from '../../contains/fontEnd'
 import Detail from '../Detail'
 
 const {Content} = Layout
+const Search = Input.Search;
 
 
 
@@ -23,18 +24,42 @@ class Blog extends Component {
     constructor (){
         super()
         this.state={
-            pageNum:10
+            pageNum:10,
+            inputVal:'',
+            currentPage:1
         }
     }
     componentWillMount () {
-        console.log(this.state.pageNum)
-        this.props.dispatch(getBlogData(`${getBlogUrl}?num=1&pageNum=${this.state.pageNum}`))
-        this.props.dispatch(getTotalData(getTotalUrl))
+        console.log(this.props,this.state)
+        _getTotalData(this,getTotalUrl,'all');
+        _getBlogData(this,getBlogUrl,'all',1,this.state.pageNum)
+        // _getBlogData(this,getBlogUrl,'all',1,this.state.pageNum)
+        // this.props.dispatch(getBlogData(`${getBlogUrl}?type=all&num=1&pageNum=${this.state.pageNum}`))
+        // this.props.dispatch(getTotalData(`${getTotalUrl}?type=all`))
     }
     onChange(page, pageSize){
-
         console.log(page,pageSize)
-        this.props.dispatch(getBlogData(`${getBlogUrl}?num=${page}&pageNum=${this.state.pageNum}`))
+        this.setState({
+            currentPage:page
+        })
+        // this.props.dispatch(getBlogData(`${getBlogUrl}?type=all&num=${page}&pageNum=${this.state.pageNum}`))
+        this.state.inputVal
+            ? _getBlogData(this,getBlogUrl,'title',page,this.state.pageNum,this.state.inputVal)
+            : _getBlogData(this,getBlogUrl,'all',page,this.state.pageNum)
+
+    }
+    onSearch(val){
+        this.setState({
+            inputVal:val,
+            currentPage:1
+        })
+        if(val){
+            _getBlogData(this,getBlogUrl,'title',1,this.state.pageNum,val)
+            _getTotalData(this,getTotalUrl,'title',val);
+        }else {
+            _getBlogData(this,getBlogUrl,'all',1,this.state.pageNum)
+            _getTotalData(this,getTotalUrl,'all');
+        }
     }
      itemRender(current, type, originalElement) {
         if (type === 'prev') {
@@ -93,6 +118,14 @@ class Blog extends Component {
                             <Breadcrumb.Item>List</Breadcrumb.Item>
                             <Breadcrumb.Item>App</Breadcrumb.Item>
                         </Breadcrumb>
+                        <Row gutter={16}>
+                            <Col className="gutter-row" span={22}>
+                                <Search placeholder="input search text" onSearch={this.onSearch.bind(this)} enterButton="Search" size="large" />
+                            </Col>
+                            <Col className="gutter-row" span={2}>
+                                <Button size="large" type="primary">发布文章</Button>
+                            </Col>
+                        </Row>
                         <div style={{background: '#fff', padding: 24, minHeight: 380}}>
                             <List
                                 itemLayout="vertical"
