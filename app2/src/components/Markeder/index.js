@@ -34,16 +34,17 @@ class MarkedComponent extends Component{
         let str = marked(e.target.value, {breaks: true});
         this.setState({
             previewContent: str,
-            previewHtmlContent:decodeURIComponent(str),
+            previewHtmlContent:str,
             markToHtml:e.target.value
         })
     }
     onSubmitDetail(){
 
         let {pathname} = this.props.location;
-        let {id} = this.props;
         let txt = this.refs.textHtml.innerText;
         if(/AdminDetail/.test(pathname)){
+            let id=/AdminDetail\/(\d+)/.exec(this.props.location.pathname)[1]
+            console.log(this.props,id)
             message.success('这是修改文章')
 
             if(txt===''||txt===this.state.txt){
@@ -51,10 +52,10 @@ class MarkedComponent extends Component{
                 return;
             }
             message.warning('不一定修改成功，待检测')
-            this.props.dispatch(postAdminDetailData(postAdminDetailUrl,{content:encodeURIComponent(updateHtml(txt)),id:id}))
+            this.props.dispatch(postAdminDetailData(postAdminDetailUrl,{content:encodeURIComponent(txt),id:id}))
         }else if(/PostArticle/.test(pathname)){
+            // let {id} = this.props;
             message.success('这是发表文章')
-            console.log(this.props)
             let {selectVal,
                 titleVal,
                 shortVal,
@@ -63,7 +64,8 @@ class MarkedComponent extends Component{
                 message.error('空值不能提交')
                 return
             }
-            this.props.dispatch(postArticleData(postArticleUrl,{title:titleVal,url:urlVal,content:encodeURIComponent(updateHtml(txt)),user:"测试用户",type:selectVal,short:shortVal}))
+            this.props.dispatch(postArticleData(postArticleUrl,{"title":titleVal,"url":urlVal,"content":encodeURIComponent(txt),
+                "user":"测试用户","type":selectVal,"short":shortVal}))
         }else {
             message.warning('不知道在做什么文章')
         }

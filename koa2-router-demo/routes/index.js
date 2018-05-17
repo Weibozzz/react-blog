@@ -50,15 +50,16 @@ router.get('/getAdminBlog', async (ctx, next) => {
 })
 router.post('/postAdminDetail',async  (ctx, next) => {
     ctx.set('Access-Control-Allow-Origin', '*')
-    let {id,content}=JSON.parse(Object.keys(ctx.request.body)[0])
+    console.log(ctx.request.body)
+    let {id,content}=ctx.request.body
     await querySql(postAdminDetailSql(content,id)).then((data) => {
         ctx.body = data
     })
 })
 router.post('/postArticle',async  (ctx, next) => {
     ctx.set('Access-Control-Allow-Origin', '*')
-    let {title,url,content,user,type,short}=JSON.parse(Object.keys(ctx.request.body)[0])
-    console.log(title,url,content,user,type,short)
+    console.log(ctx.request.body)
+    let {title,url,content,user,type,short}=ctx.request.body
     await querySql(postArticleSql(title,url,content,user,type,short)).then((data) => {
         ctx.body = data
     })

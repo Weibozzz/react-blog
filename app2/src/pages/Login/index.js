@@ -15,6 +15,7 @@ import { asyncTest,getTotal } from '../../actions'
 import 'whatwg-fetch'
 import {getBlogUrl,getTotalUrl,getBlogData,getTotalData,_getTotalData,_getBlogData} from '../../contains/fontEnd'
 import Detail from '../Detail'
+import TopTips from '../../components/TopTips';
 
 const {Content} = Layout
 const Search = Input.Search;
@@ -43,17 +44,7 @@ class Login extends Component {
                 <Header/>
                 <Layout>
                     <Content style={{padding: '0 50px', marginTop: 64}}>
-                        <Alert
-                            message="博客正在重构和开发中......"
-                            type="warning"
-                            closable
-                            banner={true}
-                        />
-                        <Breadcrumb style={{margin: '16px 0'}}>
-                            <Breadcrumb.Item>Home</Breadcrumb.Item>
-                            <Breadcrumb.Item>List</Breadcrumb.Item>
-                            <Breadcrumb.Item>App</Breadcrumb.Item>
-                        </Breadcrumb>
+                        <TopTips/>
 
                         <Row>
                             <Col span={8}></Col>

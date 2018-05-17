@@ -28,12 +28,21 @@ const getTotalSql=(type,wd)=>{
     }
 
 }
+const updateHtml=str=>{
+    return str.replace(/'|"|:|\.|\[|\]|\\/g,function(str){
 
+        if(str==='"'){
+            return '@quot;'
+        }else if(str==="'") {
+            return '@apos;'
+        }
+    });
+}
 const postArticleSql =(title,url,content,user,type,short)=>{
     let cteateTime = Date.now()/1000|0;
-    console.log(cteateTime)
+    console.log(cteateTime,content)
     return "insert into article2(title,url,content,createTime,user,`type`,short) " +
-        "values('"+title+"','"+url+"','"+content+"','"+cteateTime+"','"+user+"','"+type+"','"+short+"')";
+        "values('"+title+"','"+url+"','"+updateHtml(content)+"','"+cteateTime+"','"+user+"','"+type+"','"+short+"')";
 }
 
 

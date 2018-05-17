@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Layout, Menu, Breadcrumb, Row, Col } from 'antd'
-import { List, Avatar, Icon,Pagination,Alert,Input,Button   } from 'antd'
+import { List, Avatar, Icon,Pagination,Alert,Input,Button,Radio,Tooltip   } from 'antd'
 import { connect } from 'react-redux'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
@@ -14,6 +14,7 @@ import { asyncTest,getTotal } from '../../actions'
 import 'whatwg-fetch'
 import {getBlogUrl,getTotalUrl,getBlogData,getTotalData,_getTotalData,_getBlogData} from '../../contains/fontEnd'
 import Detail from '../Detail'
+import TopTips from '../../components/TopTips';
 
 const {Content} = Layout
 const Search = Input.Search;
@@ -31,6 +32,8 @@ class Blog extends Component {
     }
     componentWillMount () {
         console.log(this.props,this.state)
+
+
         _getTotalData(this,getTotalUrl,'all');
         _getBlogData(this,getBlogUrl,'all',1,this.state.pageNum)
         // _getBlogData(this,getBlogUrl,'all',1,this.state.pageNum)
@@ -107,17 +110,7 @@ class Blog extends Component {
                 <Header/>
                 <Layout>
                     <Content style={{padding: '0 50px', marginTop: 64}}>
-                        <Alert
-                            message="博客正在重构和开发中......"
-                            type="warning"
-                            closable
-                            banner={true}
-                        />
-                        <Breadcrumb style={{margin: '16px 0'}}>
-                            <Breadcrumb.Item>Home</Breadcrumb.Item>
-                            <Breadcrumb.Item>List</Breadcrumb.Item>
-                            <Breadcrumb.Item>App</Breadcrumb.Item>
-                        </Breadcrumb>
+                        <TopTips/>
                         <Row gutter={16}>
                             <Col className="gutter-row" span={22}>
                                 <Search placeholder="input search text" onSearch={this.onSearch.bind(this)} enterButton="Search" size="large" />

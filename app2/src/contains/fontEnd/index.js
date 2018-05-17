@@ -1,11 +1,11 @@
 import axios from 'axios';
 import {asyncTest, getDetail, getTotal, postAdminDetail, postArticle} from '../../actions'
 import {domain} from '../common';
+var qs = require("qs");
 export const getBlogUrl = domain+'/getBlog'
 export const getTotalUrl = domain+'/total'
 export const getDetailUrl = domain+'/detail'
 export const postArticleUrl = domain+'/postArticle'
-
 
 export const getBlogData = url=>{
     return dispatch => {
@@ -30,7 +30,13 @@ export const getDetailData= (url)=> {
 }
 export const postArticleData = (url,data)=>{
     return dispatch => {
-        axios.post(url,JSON.stringify(data)).then(res => {
+        axios({
+            method: 'POST',
+            url,
+            data:qs.stringify(data),
+            headers: {"Content-Type": "application/x-www-form-urlencoded",},
+
+        }).then(res => {
             dispatch(postArticle(res.data))
         })
     }

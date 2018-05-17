@@ -14,6 +14,7 @@ import {
     Route,
     Link
 } from 'react-router-dom'
+import TopTips from '../../components/TopTips';
 
 const TabPane = Tabs.TabPane;
 const {Content} = Layout;
@@ -114,11 +115,7 @@ class Admin extends Component {
 
                 <Layout>
                     <Content style={{padding: '0 50px', marginTop: 64}}>
-                        <Breadcrumb style={{margin: '16px 0'}}>
-                            <Breadcrumb.Item>Home</Breadcrumb.Item>
-                            <Breadcrumb.Item>List</Breadcrumb.Item>
-                            <Breadcrumb.Item>App</Breadcrumb.Item>
-                        </Breadcrumb>
+                        <TopTips/>
                         <Search placeholder="input search text" onSearch={this.onSearch.bind(this)} enterButton="Search" size="large" />
                         <div style={{background: '#fff', padding: 24, minHeight: 380}}>
                             <Tabs defaultActiveKey="1" onChange={callback}>

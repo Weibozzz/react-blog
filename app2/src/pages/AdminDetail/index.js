@@ -11,6 +11,7 @@ import {getDetailData, getDetailUrl} from '../../contains/fontEnd'
 import {postAdminDetailData,postAdminDetailUrl} from '../../contains/backEnd'
 import {updateHtml,spaceAdd,NbspToSpace} from '../../until';
 import Markeder from '../../components/Markeder';
+import TopTips from '../../components/TopTips';
 
 var html2markdown = require('html2markdown');
 var converter = require('html-to-markdown');
@@ -58,11 +59,7 @@ class AdminDetail extends Component {
                 <Header/>
                 <Layout>
                     <Content style={{padding: '0 50px', marginTop: 64}}>
-                        <Breadcrumb style={{margin: '16px 0'}}>
-                            <Breadcrumb.Item>Home</Breadcrumb.Item>
-                            <Breadcrumb.Item>List</Breadcrumb.Item>
-                            <Breadcrumb.Item>App</Breadcrumb.Item>
-                        </Breadcrumb>
+                        <TopTips/>
                         <div style={{background: '#fff', padding: 24, minHeight: 380}}>
                             <h2>{title}</h2>
                             <Divider/>

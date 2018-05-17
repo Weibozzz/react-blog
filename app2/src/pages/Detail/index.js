@@ -6,6 +6,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { getDetail } from '../../actions'
 import {spaceAdd} from '../../until';
+import TopTips from '../../components/TopTips';
 
 import {getDetailData,getDetailUrl} from '../../contains/fontEnd'
 const {  Content } = Layout;
@@ -39,11 +40,7 @@ class Detail extends Component {
                 <Header/>
                 <Layout>
                     <Content style={{ padding: '0 50px', marginTop: 64 }}>
-                        <Breadcrumb style={{ margin: '16px 0' }}>
-                            <Breadcrumb.Item>Home</Breadcrumb.Item>
-                            <Breadcrumb.Item>List</Breadcrumb.Item>
-                            <Breadcrumb.Item>App</Breadcrumb.Item>
-                        </Breadcrumb>
+                        <TopTips/>
                         <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
                             <h2>{title}</h2>
                             <Divider/>
