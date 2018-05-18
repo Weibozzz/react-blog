@@ -1,4 +1,5 @@
 
+let format = require('date-format');
 export const updateHtml=str=>{
     return str.replace(/'|"|:|\.|\[|\]|\\/g,function(str){
 
@@ -21,3 +22,8 @@ export const updateHtml=str=>{
 }
 export const spaceAdd = str=>str&&str.replace(/\+/g,'&nbsp;')
 export const NbspToSpace = str=>str&&str.replace(/&nbsp;/g,'　')
+export const formatTime = time=>{
+    let zh = ["日","一","二","三","四","五","六"];
+    let date = new Date(time*1000);
+    return format.asString('yyyy-MM-dd hh:mm', date)+' 星期'+zh[date.getDay()]
+}

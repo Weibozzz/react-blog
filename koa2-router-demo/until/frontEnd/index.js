@@ -18,6 +18,16 @@ const getBlogSql=(type,startIndex,pageNum,wd)=>{
 const getDetailSql=(id)=>{
     return "select * from article2 where id="+id+"";
 }
+const getCommentsSql=(a_id)=>{
+    return "select * from comment where `a_id`='"+a_id+"' order by createTime desc";
+}
+const getCommentsTotalSql=(a_id)=>{
+    return "select count(*) as 'total' from comment where a_id = "+a_id+";";
+}
+const getLifeSql=()=>{
+    return "select `id`,`title`,`user`,`createTime`,`visitor`,`like`,`img`,`type`,`short` from article2" +
+        " where `type`='interesting' or `type`='fight' order by createTime";
+}
 const getTotalSql=(type,wd)=>{
     if(type === "all"){
         return "select count(*) as 'total' from article2";
@@ -31,7 +41,6 @@ const getTotalSql=(type,wd)=>{
 
 const postArticleSql =(title,url,content,user,type,short)=>{
     let cteateTime = Date.now()/1000|0;
-    console.log(cteateTime,content)
     return "insert into article2(title,url,content,createTime,user,`type`,short) " +
         "values('"+title+"','"+url+"','"+content+"','"+cteateTime+"','"+user+"','"+type+"','"+short+"')";
 }
@@ -41,7 +50,10 @@ module.exports = {
     querySql,
     getBlogSql,
     getDetailSql,
+    getLifeSql,
     getTotalSql,
     postArticleSql,
+    getCommentsSql,
+    getCommentsTotalSql,
     getURLParameters
 }

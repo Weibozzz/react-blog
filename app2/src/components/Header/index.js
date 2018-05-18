@@ -10,6 +10,20 @@ import {
 const {Header, Content, Footer} = Layout;
 
 class TopNav extends Component {
+    constructor(){
+        super()
+        this.state={
+            userName:null
+        }
+    }
+    componentWillMount(){
+        this.setState({
+            userName:localStorage.userName
+        })
+    }
+    logout(){
+        localStorage.clear()
+    }
     render() {
         return (
             <Layout>
@@ -31,12 +45,12 @@ class TopNav extends Component {
                                     </Menu.Item>
                                     <Menu.Item key="3">
 
-                                        <Link to="/">
+                                        <Link to="/Admin">
                                             前端技术
                                         </Link>
                                     </Menu.Item>
                                     <Menu.Item key="4">
-                                        <Link to="/Admin">
+                                        <Link to="/Life">
                                             生活与创作
                                         </Link>
                                     </Menu.Item>
@@ -46,18 +60,40 @@ class TopNav extends Component {
                         </Col>
                         <Col span={3}>
                             <HashRouter>
-                                <Menu
-                                    theme="dark"
-                                    mode="horizontal"
-                                    defaultSelectedKeys={['2']}
-                                    style={{lineHeight: '64px'}}
-                                >
-                                    <Menu.Item key="6">
-                                        <Link to="/Login">
-                                            登录
-                                        </Link>
-                                    </Menu.Item>
-                                </Menu>
+                                {
+                                    this.state.userName==null?
+                                        <Menu
+                                            theme="dark"
+                                            mode="horizontal"
+                                            defaultSelectedKeys={['2']}
+                                            style={{lineHeight: '64px'}}
+                                        >
+                                            <Menu.Item key="6">
+                                                <Link to="/Login">
+                                                    登录
+                                                </Link>
+                                            </Menu.Item>
+
+                                        </Menu>
+                                        :
+                                        <Menu
+                                            theme="dark"
+                                            mode="horizontal"
+                                            defaultSelectedKeys={['2']}
+                                            style={{lineHeight: '64px'}}
+                                        >
+                                            <Menu.Item key="6">
+                                                <Link to="/Admin">
+                                                    {this.state.userName}
+                                                </Link>
+                                            </Menu.Item>
+                                            <Menu.Item key="7" onClick={this.logout.bind(this)}>
+                                                退出
+                                            </Menu.Item>
+
+                                        </Menu>
+                                }
+
                             </HashRouter>
                         </Col>
                         <Col span={2}/>

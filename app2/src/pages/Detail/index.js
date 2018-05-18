@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
-import { Layout, Menu, Breadcrumb ,Row,Col} from 'antd';
+import { Layout, Menu, Breadcrumb ,Row,Col,BackTop,Card } from 'antd';
 import { List, Avatar, Icon ,Divider} from 'antd';
 import { connect } from 'react-redux'
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { getDetail } from '../../actions'
-import {spaceAdd} from '../../until';
+import {formatTime} from '../../until';
 import TopTips from '../../components/TopTips';
 
 import marked from 'marked'
 import {getDetailData,getDetailUrl} from '../../contains/fontEnd'
 const {  Content } = Layout;
 
+var html2markdown = require('html2markdown');
 const TIME = 1526625828;
 const getHtml=(str,time)=>{
     if(TIME>time){ //这是曾经的文章
@@ -70,18 +71,25 @@ class Detail extends Component {
                         <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
                             <h2>{title}</h2>
                             <Divider/>
-                            <ul className="clearfix" >
-                                <li className="fl">发布时间:{createTime}{week}</li>
+                            <ul className="clearfix detail-info" >
+                                <li className="fl">发布时间：{formatTime(createTime)}</li>
                                 <li className="fl">作者：{user}</li>
                                 <li className="fl">浏览次数：{visitor}</li>
-                                <li className="fl">最后修改：{lastModify}</li>
+                                <li className="fl">最后修改：{formatTime(lastModify)}</li>
                                 <li className="fl">修改次数：{modifyCount}</li>
                             </ul>
                             <div
                                 dangerouslySetInnerHTML={{__html:marked(getHtml(decodeURIComponent(content),createTime), {breaks: true})}}
                             ></div>
                         </div>
+                        <h2>评论：</h2>
+                        <Card title="Card title" extra={<a href="javascript:;">More</a>}>
+                            <p>Card content</p>
+                            <p>Card content</p>
+                            <p>Card content</p>
+                        </Card>
                     </Content>
+                    <BackTop />
                 </Layout>
                 <Footer/>
             </div>

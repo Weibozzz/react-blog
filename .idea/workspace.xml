@@ -2,13 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab6082d4-c78b-42b1-ab84-efa48f9c2633" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/app2/package.json" afterPath="$PROJECT_DIR$/app2/package.json" />
+      <change beforePath="$PROJECT_DIR$/app2/src/App.css" afterPath="$PROJECT_DIR$/app2/src/App.css" />
+      <change beforePath="$PROJECT_DIR$/app2/src/App.js" afterPath="$PROJECT_DIR$/app2/src/App.js" />
+      <change beforePath="$PROJECT_DIR$/app2/src/actions.js" afterPath="$PROJECT_DIR$/app2/src/actions.js" />
+      <change beforePath="$PROJECT_DIR$/app2/src/components/Header/index.js" afterPath="$PROJECT_DIR$/app2/src/components/Header/index.js" />
       <change beforePath="$PROJECT_DIR$/app2/src/components/Markeder/index.js" afterPath="$PROJECT_DIR$/app2/src/components/Markeder/index.js" />
-      <change beforePath="$PROJECT_DIR$/app2/src/pages/AdminDetail/index.js" afterPath="$PROJECT_DIR$/app2/src/pages/AdminDetail/index.js" />
+      <change beforePath="$PROJECT_DIR$/app2/src/contains/fontEnd/index.js" afterPath="$PROJECT_DIR$/app2/src/contains/fontEnd/index.js" />
+      <change beforePath="$PROJECT_DIR$/app2/src/pages/Admin/index.js" afterPath="$PROJECT_DIR$/app2/src/pages/Admin/index.js" />
+      <change beforePath="$PROJECT_DIR$/app2/src/pages/Blog/index.js" afterPath="$PROJECT_DIR$/app2/src/pages/Blog/index.js" />
       <change beforePath="$PROJECT_DIR$/app2/src/pages/Detail/index.js" afterPath="$PROJECT_DIR$/app2/src/pages/Detail/index.js" />
-      <change beforePath="$PROJECT_DIR$/koa2-router-demo/config/index.js" afterPath="$PROJECT_DIR$/koa2-router-demo/config/index.js" />
+      <change beforePath="$PROJECT_DIR$/app2/src/pages/Login/index.js" afterPath="$PROJECT_DIR$/app2/src/pages/Login/index.js" />
+      <change beforePath="$PROJECT_DIR$/app2/src/reducers.js" afterPath="$PROJECT_DIR$/app2/src/reducers.js" />
+      <change beforePath="$PROJECT_DIR$/app2/src/until/index.js" afterPath="$PROJECT_DIR$/app2/src/until/index.js" />
       <change beforePath="$PROJECT_DIR$/koa2-router-demo/routes/index.js" afterPath="$PROJECT_DIR$/koa2-router-demo/routes/index.js" />
-      <change beforePath="$PROJECT_DIR$/koa2-router-demo/until/backEnd/index.js" afterPath="$PROJECT_DIR$/koa2-router-demo/until/backEnd/index.js" />
       <change beforePath="$PROJECT_DIR$/koa2-router-demo/until/frontEnd/index.js" afterPath="$PROJECT_DIR$/koa2-router-demo/until/frontEnd/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -23,76 +30,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app2/src/components/Markeder/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="30" column="47" lean-forward="false" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
-              <folding>
-                <element signature="e#0#38#0" expanded="true" />
-                <element signature="n#!!block;n#onSubmitDetail#0;n#MarkedComponent#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app2/src/pages/AdminDetail/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="48" column="14" lean-forward="false" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/koa2-router-demo/config/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="6" column="6" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/koa2-router-demo/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state relative-caret-position="644">
+              <caret line="61" column="38" lean-forward="false" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/koa2-router-demo/until/frontEnd/index.js">
+        <entry file="file://$PROJECT_DIR$/app2/src/contains/fontEnd/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="35" column="48" lean-forward="false" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app2/src/pages/Detail/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1840">
-              <caret line="80" column="118" lean-forward="false" selection-start-line="80" selection-start-column="118" selection-end-line="80" selection-end-column="118" />
+            <state relative-caret-position="138">
+              <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="23" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app2/src/pages/Blog/index.js">
+        <entry file="file://$PROJECT_DIR$/app2/src/contains/backEnd/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-204">
-              <caret line="15" column="30" lean-forward="true" selection-start-line="15" selection-start-column="30" selection-end-line="16" selection-end-column="47" />
+            <state relative-caret-position="299">
+              <caret line="16" column="48" lean-forward="false" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -109,10 +73,64 @@
         </entry>
       </file>
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app2/src/pages/Admin/index.js">
+        <entry file="file://$PROJECT_DIR$/app2/src/until/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-858">
-              <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="16" selection-end-column="47" />
+            <state relative-caret-position="552">
+              <caret line="24" column="30" lean-forward="false" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app2/src/contains/common/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="23">
+              <caret line="1" column="19" lean-forward="false" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/koa2-router-demo/until/frontEnd/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="660">
+              <caret line="56" column="24" lean-forward="false" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app2/src/pages/Detail/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="85" column="88" lean-forward="false" selection-start-line="85" selection-start-column="88" selection-end-line="85" selection-end-column="88" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app2/src/components/Markeder/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1074">
+              <caret line="71" column="27" lean-forward="false" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app2/src/pages/PostArticle/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-306">
+              <caret line="77" column="62" lean-forward="false" selection-start-line="77" selection-start-column="58" selection-end-line="77" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -163,31 +181,33 @@
         <option value="$PROJECT_DIR$/koa2-router-demo/until/common/index.js" />
         <option value="$PROJECT_DIR$/koa2-router-demo/routes/backEnd/index.js" />
         <option value="$PROJECT_DIR$/koa2-router-demo/routes/frontEnd/index.js" />
-        <option value="$PROJECT_DIR$/app2/src/reducers.js" />
         <option value="$PROJECT_DIR$/koa2-router-demo/test.js" />
         <option value="$PROJECT_DIR$/koa2-router-demo/test.html" />
-        <option value="$PROJECT_DIR$/app2/src/App.css" />
-        <option value="$PROJECT_DIR$/app2/src/actions.js" />
-        <option value="$PROJECT_DIR$/app2/src/until/index.js" />
         <option value="$PROJECT_DIR$/app2/src/pages/Login.js" />
-        <option value="$PROJECT_DIR$/app2/src/App.js" />
-        <option value="$PROJECT_DIR$/app2/src/components/Header/index.js" />
         <option value="$PROJECT_DIR$/app2/src/contains/common/index.js" />
         <option value="$PROJECT_DIR$/app2/src/components/TopTips/index.js" />
-        <option value="$PROJECT_DIR$/app2/src/pages/Blog/index.js" />
-        <option value="$PROJECT_DIR$/app2/src/pages/Admin/index.js" />
-        <option value="$PROJECT_DIR$/app2/src/pages/Login/index.js" />
         <option value="$PROJECT_DIR$/koa2-router-demo/app.js" />
         <option value="$PROJECT_DIR$/app2/src/pages/PostArticle/index.js" />
-        <option value="$PROJECT_DIR$/app2/src/contains/fontEnd/index.js" />
         <option value="$PROJECT_DIR$/app2/src/contains/backEnd/index.js" />
         <option value="$PROJECT_DIR$/koa2-router-demo/until/backEnd/index.js" />
-        <option value="$PROJECT_DIR$/koa2-router-demo/until/frontEnd/index.js" />
         <option value="$PROJECT_DIR$/koa2-router-demo/config/index.js" />
-        <option value="$PROJECT_DIR$/koa2-router-demo/routes/index.js" />
-        <option value="$PROJECT_DIR$/app2/src/pages/Detail/index.js" />
-        <option value="$PROJECT_DIR$/app2/src/components/Markeder/index.js" />
         <option value="$PROJECT_DIR$/app2/src/pages/AdminDetail/index.js" />
+        <option value="$PROJECT_DIR$/app2/src/App.css" />
+        <option value="$PROJECT_DIR$/app2/src/until/index.js" />
+        <option value="$PROJECT_DIR$/app2/src/pages/Admin/index.js" />
+        <option value="$PROJECT_DIR$/app2/src/App.js" />
+        <option value="$PROJECT_DIR$/app2/src/actions.js" />
+        <option value="$PROJECT_DIR$/app2/src/contains/fontEnd/index.js" />
+        <option value="$PROJECT_DIR$/app2/src/reducers.js" />
+        <option value="$PROJECT_DIR$/app2/src/pages/Blog/index.js" />
+        <option value="$PROJECT_DIR$/app2/src/components/ListTitle/index.js" />
+        <option value="$PROJECT_DIR$/app2/src/pages/Life/index.js" />
+        <option value="$PROJECT_DIR$/app2/src/components/Header/index.js" />
+        <option value="$PROJECT_DIR$/app2/src/pages/Login/index.js" />
+        <option value="$PROJECT_DIR$/app2/src/components/Markeder/index.js" />
+        <option value="$PROJECT_DIR$/app2/src/pages/Detail/index.js" />
+        <option value="$PROJECT_DIR$/koa2-router-demo/until/frontEnd/index.js" />
+        <option value="$PROJECT_DIR$/koa2-router-demo/routes/index.js" />
       </list>
     </option>
   </component>
@@ -363,6 +383,14 @@
               <item name="app2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="Life" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="react-blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="react-blog" type="462c0819:PsiDirectoryNode" />
+              <item name="app2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="Login" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -448,11 +476,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\project\myself\ctrl\react-blog\app2\src\pages" />
       <recent name="F:\myself\ctrl\a-my-react-blog-index\app2\src\pages" />
       <recent name="F:\myself\ctrl\a-my-react-blog-index\koa2-router-demo\routes" />
       <recent name="F:\myself\ctrl\a-my-react-blog-index\app2\src\contains" />
       <recent name="F:\myself\ctrl\a-my-react-blog-index\koa2-router-demo\until" />
-      <recent name="F:\myself\ctrl\a-my-react-blog-index\app\src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -487,12 +515,12 @@
       <workItem from="1526387343972" duration="12731000" />
       <workItem from="1526472168849" duration="7471000" />
       <workItem from="1526563812115" duration="13082000" />
-      <workItem from="1526621504345" duration="7962000" />
+      <workItem from="1526621504345" duration="18390000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57624000" />
+    <option name="totallyTimeSpent" value="68052000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -501,7 +529,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839224" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -529,9 +557,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/components/Footer/index.js" />
-    <entry file="file://$PROJECT_DIR$/app/src/reducers.js" />
-    <entry file="file://$PROJECT_DIR$/app/src/actions.js" />
     <entry file="file://$PROJECT_DIR$/app/src/pages/Blog/index.js" />
     <entry file="file://$PROJECT_DIR$/app/package.json" />
     <entry file="file://$PROJECT_DIR$/app/src/index.js" />
@@ -615,16 +640,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app2/src/reducers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="47" column="13" lean-forward="false" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
-          <folding>
-            <element signature="e#42#81#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/koa2-router-demo/bin/www">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
@@ -645,6 +660,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="102" column="4" lean-forward="true" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -655,54 +671,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app2/src/App.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="16" lean-forward="true" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app2/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app2/src/pages/Login.js" />
-    <entry file="file://$PROJECT_DIR$/app2/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="29" column="63" lean-forward="false" selection-start-line="29" selection-start-column="63" selection-end-line="29" selection-end-column="63" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app2/src/components/Header/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="58" column="48" lean-forward="false" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app2/src/actions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app2/src/contains/common/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="19" lean-forward="false" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app2/src/components/TopTips/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -713,20 +682,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app2/src/pages/Login/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="17" column="47" lean-forward="false" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
-          <folding>
-            <element signature="e#3916#5941#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app2/src/components/Footer/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="6" column="52" lean-forward="false" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -746,36 +706,129 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app2/src/contains/fontEnd/index.js">
+    <entry file="file://$PROJECT_DIR$/koa2-router-demo/config/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="33" selection-end-line="3" selection-end-column="23" />
+        <state relative-caret-position="138">
+          <caret line="6" column="6" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app2/src/pages/AdminDetail/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="48" column="14" lean-forward="false" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app2/src/App.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="24" column="22" lean-forward="false" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app2/src/pages/Admin/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1518">
+          <caret line="87" column="113" lean-forward="false" selection-start-line="87" selection-start-column="113" selection-end-line="87" selection-end-column="113" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app2/src/contains/backEnd/index.js">
+    <entry file="file://$PROJECT_DIR$/app2/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
-          <caret line="16" column="48" lean-forward="false" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app2/src/until/index.js">
+    <entry file="file://$PROJECT_DIR$/app2/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="20" column="1" lean-forward="true" selection-start-line="1" selection-start-column="7" selection-end-line="20" selection-end-column="1" />
+        <state relative-caret-position="713">
+          <caret line="31" column="61" lean-forward="false" selection-start-line="31" selection-start-column="61" selection-end-line="31" selection-end-column="61" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app2/src/actions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-467">
+          <caret line="5" column="35" lean-forward="false" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app2/src/pages/PostArticle/index.js">
+    <entry file="file://$PROJECT_DIR$/app2/src/reducers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="802">
-          <caret line="77" column="62" lean-forward="false" selection-start-line="77" selection-start-column="58" selection-end-line="77" selection-end-column="62" />
+        <state relative-caret-position="545">
+          <caret line="71" column="9" lean-forward="false" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
+          <folding>
+            <element signature="e#42#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app2/src/components/ListTitle/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1626">
+          <caret line="83" column="35" lean-forward="false" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#1149#1326#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app2/src/pages/Blog/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2944">
+          <caret line="163" column="45" lean-forward="true" selection-start-line="155" selection-start-column="44" selection-end-line="163" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#3444#4083#0" expanded="false" />
+            <element signature="e#5513#5770#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app2/src/pages/Life/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="88" column="80" lean-forward="false" selection-start-line="88" selection-start-column="80" selection-end-line="88" selection-end-column="80" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="15096" column="29" lean-forward="true" selection-start-line="15096" selection-start-column="29" selection-end-line="15096" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app2/src/pages/Login/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="48" column="50" lean-forward="false" selection-start-line="48" selection-start-column="50" selection-end-line="48" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app2/src/components/Header/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="47" column="56" lean-forward="false" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="56" />
           <folding />
         </state>
       </provider>
@@ -788,71 +841,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app2/src/pages/Blog/index.js">
+    <entry file="file://$PROJECT_DIR$/app2/src/contains/common/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-204">
-          <caret line="15" column="30" lean-forward="true" selection-start-line="15" selection-start-column="30" selection-end-line="16" selection-end-column="47" />
+        <state relative-caret-position="23">
+          <caret line="1" column="19" lean-forward="false" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/koa2-router-demo/config/index.js">
+    <entry file="file://$PROJECT_DIR$/app2/src/contains/backEnd/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="16" column="48" lean-forward="false" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app2/src/contains/fontEnd/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
-          <caret line="6" column="6" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/koa2-router-demo/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/koa2-router-demo/until/frontEnd/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="35" column="48" lean-forward="false" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app2/src/pages/Detail/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1840">
-          <caret line="80" column="118" lean-forward="false" selection-start-line="80" selection-start-column="118" selection-end-line="80" selection-end-column="118" />
+          <caret line="6" column="23" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="23" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app2/src/pages/Admin/index.js">
+    <entry file="file://$PROJECT_DIR$/app2/src/until/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-858">
-          <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="16" selection-end-column="47" />
+        <state relative-caret-position="552">
+          <caret line="24" column="30" lean-forward="false" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app2/src/pages/PostArticle/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-306">
+          <caret line="77" column="62" lean-forward="false" selection-start-line="77" selection-start-column="58" selection-end-line="77" selection-end-column="62" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app2/src/components/Markeder/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="30" column="47" lean-forward="false" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+        <state relative-caret-position="1074">
+          <caret line="71" column="27" lean-forward="false" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
-            <element signature="n#!!block;n#onSubmitDetail#0;n#MarkedComponent#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app2/src/pages/AdminDetail/index.js">
+    <entry file="file://$PROJECT_DIR$/app2/src/pages/Detail/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="48" column="14" lean-forward="false" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
+        <state relative-caret-position="384">
+          <caret line="85" column="88" lean-forward="false" selection-start-line="85" selection-start-column="88" selection-end-line="85" selection-end-column="88" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/koa2-router-demo/until/frontEnd/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="56" column="24" lean-forward="false" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/koa2-router-demo/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="61" column="38" lean-forward="false" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="38" />
           <folding />
         </state>
       </provider>

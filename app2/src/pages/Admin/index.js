@@ -15,6 +15,7 @@ import {
     Link
 } from 'react-router-dom'
 import TopTips from '../../components/TopTips';
+import {formatTime} from '../../until';
 
 const TabPane = Tabs.TabPane;
 const {Content} = Layout;
@@ -83,19 +84,8 @@ class Admin extends Component {
                 } :
                 {title: v, dataIndex: v}
         )) : []
-        /*const columns = [{
-            title: 'Name',
-            dataIndex: 'name',
-        }, {
-            title: 'Age',
-            dataIndex: 'age',
-        }, {
-            title: 'Address',
-            dataIndex: 'address',
-        }];*/
         const total = this.props.total&&this.props.total[0]&&this.props.total[0].total? this.props.total[0].total : 0;
-        const data = adminBlog.map((v, i) => Object.assign({}, v, {key: i}))
-        console.log(data)
+        const data = adminBlog.map((v, i) => Object.assign({}, v, {key: i},{createTime:formatTime(v.createTime)}))
 
         function onChange(pagination, filters, sorter) {
             console.log('params', pagination, filters, sorter);

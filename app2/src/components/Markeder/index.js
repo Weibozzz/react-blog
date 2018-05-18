@@ -69,7 +69,7 @@ class MarkedComponent extends Component{
                 return
             }
             this.props.dispatch(postArticleData(postArticleUrl,{"title":titleVal,"url":urlVal,"content":encodeURIComponent(this.state.markToHtml),
-                "user":"测试用户","type":selectVal,"short":shortVal}))
+                "user":"刘伟波","type":selectVal,"short":shortVal}))
         }else {
             message.warning('不知道在做什么文章')
         }

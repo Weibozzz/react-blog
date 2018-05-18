@@ -28,11 +28,29 @@ function callback(key) {
 
 
 class Login extends Component {
-    handleSubmit = (e) => {
+    constructor(){
+        super()
+        this.state={
+            userName:null
+        }
+    }
+    componentWillMount(){
+        this.setState({
+            userName:localStorage.userName
+        })
+    }
+    handleSubmit(e){
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
+                let {userName,password} = values;
+                // console.log(values)
+                if(localStorage.userName==null){
+                    localStorage.userName=userName
+                    this.setState({
+                        userName:userName
+                    })
+                }
             }
         });
     }
@@ -52,7 +70,7 @@ class Login extends Component {
 
                                 <Tabs defaultActiveKey="1" onChange={callback}>
                                     <TabPane tab="用户登录" key="1">
-                                        <Form onSubmit={this.handleSubmit} className="login-form">
+                                        <Form onSubmit={this.handleSubmit.bind(this)} className="login-form">
                                             <FormItem>
                                                 {getFieldDecorator('userName', {
                                                     rules: [{ required: true, message: 'Please input your username!' }],
@@ -62,36 +80,7 @@ class Login extends Component {
                                             </FormItem>
                                             <FormItem>
                                                 {getFieldDecorator('password', {
-                                                    rules: [{ required: true, message: 'Please input your Password!' }],
-                                                })(
-                                                    <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
-                                                )}
-                                            </FormItem>
-                                            <FormItem>
-                                                {getFieldDecorator('remember', {
-                                                    valuePropName: 'checked',
-                                                    initialValue: true,
-                                                })(
-                                                    <Checkbox>Remember me</Checkbox>
-                                                )}
-                                                <Button type="primary" htmlType="submit" className="login-form-button">
-                                                    Log in
-                                                </Button>
-                                            </FormItem>
-                                        </Form>
-                                    </TabPane>
-                                    <TabPane tab="管理员登录" key="2">
-                                        <Form onSubmit={this.handleSubmit} className="login-form">
-                                            <FormItem>
-                                                {getFieldDecorator('userName', {
-                                                    rules: [{ required: true, message: 'Please input your username!' }],
-                                                })(
-                                                    <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
-                                                )}
-                                            </FormItem>
-                                            <FormItem>
-                                                {getFieldDecorator('password', {
-                                                    rules: [{ required: true, message: 'Please input your Password!' }],
+                                                    rules: [{ required: false, message: 'Please input your Password!' }],
                                                 })(
                                                     <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
                                                 )}

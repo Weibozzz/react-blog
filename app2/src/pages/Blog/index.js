@@ -14,6 +14,7 @@ import { asyncTest,getTotal } from '../../actions'
 import 'whatwg-fetch'
 import {getBlogUrl,getTotalUrl,getBlogData,getTotalData,_getTotalData,_getBlogData} from '../../contains/fontEnd'
 import Detail from '../Detail'
+import {formatTime} from '../../until';
 import TopTips from '../../components/TopTips';
 
 const {Content} = Layout
@@ -140,8 +141,13 @@ class Blog extends Component {
                                 renderItem={item => (
                                     <List.Item
                                         key={item.title}
-                                        actions={[<IconText type="star-o" text="156"/>,
-                                            <IconText type="like-o" text={item.like}/>, <IconText type="message" text="2"/>]}
+                                        actions={[
+                                            formatTime(item.createTime),
+                                            <IconText type="star-o" text="156"/>,
+                                            <IconText type="like-o" text={item.like}/>,
+                                            <IconText type="message" text="2"/>,
+                                            <IconText type="eye-o" text={item.visitor}/>,
+                                        ]}
                                         // extra={<img width={272} alt="logo"
                                         //             src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"/>}
                                     >
