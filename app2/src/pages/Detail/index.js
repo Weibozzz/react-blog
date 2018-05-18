@@ -8,9 +8,34 @@ import { getDetail } from '../../actions'
 import {spaceAdd} from '../../until';
 import TopTips from '../../components/TopTips';
 
+import marked from 'marked'
 import {getDetailData,getDetailUrl} from '../../contains/fontEnd'
 const {  Content } = Layout;
 
+const TIME = 1526625828;
+const getHtml=(str,time)=>{
+    if(TIME>time){ //这是曾经的文章
+        return str? str.replace(/@quot;|@apos;|\+/g,function(str){
+                if(str==='@quot;'){
+                    return '"'
+                }else if(str==="@apos;") {
+                    return "'"
+                }else if(str==="+") {
+                    return "&nbsp;"
+                }
+            })
+            :null
+    }else {
+        return str? str.replace(/@quot;|@apos;/g,function(str){
+                if(str==='@quot;'){
+                    return '"'
+                }else if(str==="@apos;") {
+                    return "'"
+                }
+            })
+            :null
+    }
+}
 class Detail extends Component {
     componentWillMount () {
         let {id} =this.props.match.params ;
@@ -35,6 +60,7 @@ class Detail extends Component {
             visitor,
             week
         }=this.props.detail&&this.props.detail[0]?this.props.detail[0]:{};
+        console.log(content)
         return (
             <div className="Detail">
                 <Header/>
@@ -52,7 +78,7 @@ class Detail extends Component {
                                 <li className="fl">修改次数：{modifyCount}</li>
                             </ul>
                             <div
-                                dangerouslySetInnerHTML={{__html:decodeURIComponent(spaceAdd(content))}}
+                                dangerouslySetInnerHTML={{__html:marked(getHtml(decodeURIComponent(content),createTime), {breaks: true})}}
                             ></div>
                         </div>
                     </Content>

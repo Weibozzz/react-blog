@@ -26,34 +26,27 @@ class AdminDetail extends Component {
             previewHtmlContent:'',
             txt:'该文档不支持html-to-markdown',
             isSupport:true,
-            id:''
+            id:'',
+            title:''
         }
     }
 
     componentWillMount() {
-        let {id} = this.props.match.params;
-        this.props.dispatch(getDetailData(`${getDetailUrl}?id=${id}`))
         console.log(this.props)
+        if(this.props.location.pathname==='/PostArticle')return;
+        let adminDetailId=/AdminDetail\/(\d+)/.exec(this.props.location.pathname)[1]
+        this.props.dispatch(getDetailData(`${getDetailUrl}?id=${adminDetailId}`))
+        let {content,createTime,id,img, lastModify, like, modifyCount, recommend, short, title, type, url, user, visitor, week} =
+            this.props.detail && this.props.detail[0] ? this.props.detail[0] : {};
+        content=content?decodeURIComponent(content):'正在加载......';
+        this.setState({
+            markData:content,
+            title:title
+        })
     }
 
 
     render() {
-
-        let {content,createTime,id,img, lastModify, like, modifyCount, recommend, short, title, type, url, user, visitor, week} =
-            this.props.detail && this.props.detail[0] ? this.props.detail[0] : {};
-        content=content?decodeURIComponent(content):'正在加载......';
-        let cont={};
-        try {
-            cont={
-                txt:html2markdown(NbspToSpace(content)),
-                isSupport:true
-            }
-        } catch (err) {
-            cont={
-                txt:this.state.txt,
-                isSupport:false
-            }
-        }
         return (
             <div className="AdminDetail">
                 <Header/>
@@ -61,10 +54,10 @@ class AdminDetail extends Component {
                     <Content style={{padding: '0 50px', marginTop: 64}}>
                         <TopTips/>
                         <div style={{background: '#fff', padding: 24, minHeight: 380}}>
-                            <h2>{title}</h2>
+                            <h2>{this.state.title}</h2>
                             <Divider/>
                             {/*<Markeder  />*/}
-                            <Markeder {...Object.assign({},this.state,cont,this.props)} />
+                            <Markeder {...Object.assign({},this.props,this.state)} />
                         </div>
                     </Content>
                 </Layout>

@@ -13,6 +13,16 @@ const {
     postAdminDetailSql
 } =require('../until/backEnd');
 
+const saveHtml=str=>{
+    return str.replace(/'|"/g,function(str){
+        if(str==='"'){
+            return '@quot;'
+        }else if(str==="'") {
+            return '@apos;'
+        }
+    });
+}
+
 
 
 router.get('/getBlog', async (ctx, next) => {
@@ -36,7 +46,9 @@ router.get('/detail', async (ctx, next) => {
     ctx.set('Access-Control-Allow-Origin', '*')
     let {id} = getURLParameters(ctx.originalUrl)
     await querySql(getDetailSql(id)).then((data) => {
-        ctx.body = spaceAdd(data)
+        // console.log(data)
+        ctx.body = data
+        // ctx.body = spaceAdd(data)
     })
 })
 router.get('/getAdminBlog', async (ctx, next) => {
@@ -60,7 +72,7 @@ router.post('/postArticle',async  (ctx, next) => {
     ctx.set('Access-Control-Allow-Origin', '*')
     console.log(ctx.request.body)
     let {title,url,content,user,type,short}=ctx.request.body
-    await querySql(postArticleSql(title,url,content,user,type,short)).then((data) => {
+    await querySql(postArticleSql(title,url,saveHtml(content),user,type,short)).then((data) => {
         ctx.body = data
     })
 })

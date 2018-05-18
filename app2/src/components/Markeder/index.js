@@ -18,24 +18,28 @@ class MarkedComponent extends Component{
             previewHtmlContent:'',
             txt:'该文档不支持html-to-markdown',
             isSupport:true,
-            markToHtml:''
+            markToHtml:'',
+            markData:'',
+            id:null
         }
     }
     componentWillMount(){
         console.log(this.props)
+        let {content,createTime,id,img, lastModify, like, modifyCount, recommend, short, title, type, url, user, visitor, week} =
+            this.props.detail && this.props.detail[0] ? this.props.detail[0] : {};
         this.setState({
-            markToHtml: this.props.txt,
+            markData:decodeURIComponent(content),
         })
     }
 
     onContentChange(e) {
         if(!this.state.isSupport)return;
-        console.log(e.target.value)
         let str = marked(e.target.value, {breaks: true});
         this.setState({
             previewContent: str,
             previewHtmlContent:str,
-            markToHtml:e.target.value
+            markToHtml:e.target.value,
+            markData:e.target.value
         })
     }
     onSubmitDetail(){
@@ -52,7 +56,7 @@ class MarkedComponent extends Component{
                 return;
             }
             message.warning('不一定修改成功，待检测')
-            this.props.dispatch(postAdminDetailData(postAdminDetailUrl,{content:encodeURIComponent(txt),id:id}))
+            this.props.dispatch(postAdminDetailData(postAdminDetailUrl,{content:encodeURIComponent(this.state.markData),id:id}))
         }else if(/PostArticle/.test(pathname)){
             // let {id} = this.props;
             message.success('这是发表文章')
@@ -64,20 +68,21 @@ class MarkedComponent extends Component{
                 message.error('空值不能提交')
                 return
             }
-            this.props.dispatch(postArticleData(postArticleUrl,{"title":titleVal,"url":urlVal,"content":encodeURIComponent(txt),
+            this.props.dispatch(postArticleData(postArticleUrl,{"title":titleVal,"url":urlVal,"content":encodeURIComponent(this.state.markToHtml),
                 "user":"测试用户","type":selectVal,"short":shortVal}))
         }else {
             message.warning('不知道在做什么文章')
         }
     }
     render(){
+
         return (
 
             <div>
                 <Tabs>
                     <TabPane tab="marked" key="1">
                         <TextArea rows={15}
-                             onInput={this.onContentChange.bind(this)} value={this.state.markToHtml} />
+                             onInput={this.onContentChange.bind(this)} value={this.state.markData} />
                     </TabPane>
                     <TabPane tab="预览" key="2">
                         <div dangerouslySetInnerHTML={{__html: this.state.previewContent}}></div>
@@ -91,4 +96,9 @@ class MarkedComponent extends Component{
         )
     }
 }
-export default connect()(MarkedComponent)
+const select = (state) => {
+    return {
+        detail: state.detail,
+    }
+}
+export default connect(select)(MarkedComponent)
