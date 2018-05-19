@@ -20,16 +20,29 @@ class MarkedComponent extends Component{
             isSupport:true,
             markToHtml:'',
             markData:'',
-            id:null
+            id:null,
+            isAdminDetail:false,
+            isPostArticle:false,
         }
     }
     componentWillMount(){
-        console.log(this.props)
+
         let {content,createTime,id,img, lastModify, like, modifyCount, recommend, short, title, type, url, user, visitor, week} =
             this.props.detail && this.props.detail[0] ? this.props.detail[0] : {};
-        this.setState({
-            markData:decodeURIComponent(content),
-        })
+        let {pathname} = this.props.location;
+        if(/AdminDetail/.test(pathname)){
+            this.setState({
+                isAdminDetail:true,
+                isPostArticle:false,
+                markData:decodeURIComponent(content),
+            })
+        }else if(/PostArticle/.test(pathname)){
+            this.setState({
+                isPostArticle:true,
+                isAdminDetail:false,
+                markData:'',
+            })
+        }
     }
 
     onContentChange(e) {
@@ -44,11 +57,10 @@ class MarkedComponent extends Component{
     }
     onSubmitDetail(){
 
-        let {pathname} = this.props.location;
         let txt = this.refs.textHtml.innerText;
-        if(/AdminDetail/.test(pathname)){
+        if(this.state.isAdminDetail){
             let id=/AdminDetail\/(\d+)/.exec(this.props.location.pathname)[1]
-            console.log(this.props,id)
+            console.log(this.props,id,this.props.location.pathname)
             message.success('这是修改文章')
 
             if(txt===''||txt===this.state.txt){
@@ -57,8 +69,7 @@ class MarkedComponent extends Component{
             }
             message.warning('不一定修改成功，待检测')
             this.props.dispatch(postAdminDetailData(postAdminDetailUrl,{content:encodeURIComponent(this.state.markData),id:id}))
-        }else if(/PostArticle/.test(pathname)){
-            // let {id} = this.props;
+        }else if(this.state.isPostArticle){
             message.success('这是发表文章')
             let {selectVal,
                 titleVal,
