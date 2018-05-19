@@ -1,11 +1,12 @@
 import axios from 'axios';
-import {asyncTest, getDetail, getTotal, postAdminDetail, postArticle,getLife} from '../../actions'
+import {asyncTest, getDetail, getTotal, postAdminDetail, postArticle,getLife,getComments} from '../../actions'
 import {domain} from '../common';
 var qs = require("qs");
 export const getBlogUrl = domain+'/getBlog'
 export const getTotalUrl = domain+'/total'
 export const getLifeUrl = domain+'/life'
 export const getDetailUrl = domain+'/detail'
+export const getCommentsUrl = domain+'/comments'
 export const postArticleUrl = domain+'/postArticle'
 
 export const getBlogData = url=>{
@@ -26,6 +27,13 @@ export const getLifeData =(url)=> {
     return dispatch => {
         axios.get(url).then(res => {
             dispatch(getLife(res.data))
+        })
+    }
+}
+export const getCommentsData =(url)=> {
+    return dispatch => {
+        axios.get(url).then(res => {
+            dispatch(getComments(res.data))
         })
     }
 }

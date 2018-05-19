@@ -9,7 +9,7 @@ import {formatTime} from '../../until';
 import TopTips from '../../components/TopTips';
 
 import marked from 'marked'
-import {getDetailData,getDetailUrl} from '../../contains/fontEnd'
+import {getDetailData,getDetailUrl,getCommentsData,getCommentsUrl} from '../../contains/fontEnd'
 const {  Content } = Layout;
 
 var html2markdown = require('html2markdown');
@@ -41,6 +41,7 @@ class Detail extends Component {
     componentWillMount () {
         let {id} =this.props.match.params ;
         this.props.dispatch(getDetailData(`${getDetailUrl}?id=${id}`))
+        this.props.dispatch(getCommentsData(`${getCommentsUrl}?id=${id}`))
     }
     render() {
 
@@ -61,7 +62,7 @@ class Detail extends Component {
             visitor,
             week
         }=this.props.detail&&this.props.detail[0]?this.props.detail[0]:{};
-        console.log(content)
+
         return (
             <div className="Detail">
                 <Header/>
@@ -82,12 +83,26 @@ class Detail extends Component {
                                 dangerouslySetInnerHTML={{__html:marked(getHtml(decodeURIComponent(content),createTime), {breaks: true})}}
                             ></div>
                         </div>
-                        <h2>评论：</h2>
-                        <Card title="Card title" extra={<a href="javascript:;">More</a>}>
-                            <p>Card content</p>
-                            <p>Card content</p>
-                            <p>Card content</p>
-                        </Card>
+                        <div style={{display:this.props.comments.length?'block':'none'}}>
+                            <h2>评论：</h2>
+                            {
+                                this.props.comments.map((v,i)=>
+                                    (
+                                        <Card
+                                            bodyStyle={{background:"#f8f8f8"}}
+                                            key={i} title={
+                                            <span>
+                                                <span style={{color:'#34538b',fontWeight:'bold'}}>{v.user}</span>
+                                                说道：
+                                            </span>
+                                        }
+                                            extra={<a href="javascript:;">{formatTime(v.createTime)}</a>}>
+                                            <p>{v.msg}</p>
+                                        </Card>
+                                    )
+                                )
+                            }
+                        </div>
                     </Content>
                     <BackTop />
                 </Layout>
@@ -97,8 +112,10 @@ class Detail extends Component {
     }
 }
 const select = (state) => {
+    console.log(state)
     return {
-        detail:state.detail
+        detail:state.detail,
+        comments:state.comments
     }
 }
 export default connect(select)(Detail);

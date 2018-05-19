@@ -4,6 +4,7 @@ export const GET_TOTAL = 'GET_TOTAL';
 export const GET_DETAIL = 'GET_DETAIL';
 export const GET_ADMIN_BLOG = 'GET_ADMIN_BLOG';
 export const GET_LIFE = 'GET_LIFE';
+export const GET_COMMENTS = 'GET_COMMENTS';
 
 export const POST_ADMIN_DETAIL = 'POST_ADMIN_DETAIL';
 export const POST_ARTICLE = 'POST_ARTICLE';
@@ -27,6 +28,12 @@ export const getDetail = data =>{
     console.log(data)
     return {
         type:GET_DETAIL,
+        data
+    }
+};
+export const getComments = data =>{
+    return {
+        type:GET_COMMENTS,
         data
     }
 };
