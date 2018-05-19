@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab6082d4-c78b-42b1-ab84-efa48f9c2633" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app2/src/actions.js" afterPath="$PROJECT_DIR$/app2/src/actions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app2/src/contains/fontEnd/index.js" afterPath="$PROJECT_DIR$/app2/src/contains/fontEnd/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app2/src/pages/Detail/index.js" afterPath="$PROJECT_DIR$/app2/src/pages/Detail/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app2/src/reducers.js" afterPath="$PROJECT_DIR$/app2/src/reducers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app2/package.json" afterPath="$PROJECT_DIR$/app2/package.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -54,7 +51,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app2/src/pages/Detail/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="339">
@@ -62,6 +59,39 @@
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app2/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="730">
+              <caret line="116" column="18" lean-forward="false" selection-start-line="116" selection-start-column="18" selection-end-line="116" selection-end-column="18" />
+              <folding>
+                <element signature="n#!!block;n#scripts#0;n#!!top" expanded="false" />
+                <element signature="n#!!block;n#jest#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/koa2-router-demo/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="575">
+              <caret line="25" column="18" lean-forward="false" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -104,7 +134,6 @@
         <option value="$PROJECT_DIR$/app/src/pages/Blog/index.js" />
         <option value="$PROJECT_DIR$/app2/config/webpackDevServer.config.js" />
         <option value="$PROJECT_DIR$/koa2-router-demo/bin/www" />
-        <option value="$PROJECT_DIR$/app2/package.json" />
         <option value="$PROJECT_DIR$/app2/src/components/Footer/index.js" />
         <option value="$PROJECT_DIR$/koa2-router-demo/until/db_until.js" />
         <option value="$PROJECT_DIR$/koa2-router-demo/until/common/index.js" />
@@ -138,6 +167,8 @@
         <option value="$PROJECT_DIR$/app2/src/contains/fontEnd/index.js" />
         <option value="$PROJECT_DIR$/app2/src/reducers.js" />
         <option value="$PROJECT_DIR$/app2/src/pages/Detail/index.js" />
+        <option value="$PROJECT_DIR$/app2/package.json" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -336,12 +367,12 @@
       <workItem from="1526472168849" duration="7471000" />
       <workItem from="1526563812115" duration="13082000" />
       <workItem from="1526621504345" duration="18390000" />
-      <workItem from="1526726051913" duration="5992000" />
+      <workItem from="1526726051913" duration="6544000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74044000" />
+    <option name="totallyTimeSpent" value="74596000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -378,8 +409,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/pages/Blog/index.js" />
-    <entry file="file://$PROJECT_DIR$/app/package.json" />
     <entry file="file://$PROJECT_DIR$/app/src/index.js" />
     <entry file="file://$PROJECT_DIR$/app/src/App.js" />
     <entry file="file://$PROJECT_DIR$/app/src/App.css" />
@@ -474,14 +503,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app2/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="102" column="4" lean-forward="true" selection-start-line="102" selection-start-column="4" selection-end-line="102" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -746,6 +767,33 @@
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/koa2-router-demo/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="25" column="18" lean-forward="false" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app2/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="730">
+          <caret line="116" column="18" lean-forward="false" selection-start-line="116" selection-start-column="18" selection-end-line="116" selection-end-column="18" />
+          <folding>
+            <element signature="n#!!block;n#scripts#0;n#!!top" expanded="false" />
+            <element signature="n#!!block;n#jest#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
