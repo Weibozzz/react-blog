@@ -16,6 +16,7 @@ import {getBlogUrl,getTotalUrl,getBlogData,getTotalData,_getTotalData,_getBlogDa
 import Detail from '../Detail'
 import {formatTime} from '../../until';
 import TopTips from '../../components/TopTips';
+import ListTitle from '../../components/ListTitle';
 
 const {Content} = Layout
 const Search = Input.Search;
@@ -37,16 +38,12 @@ class Blog extends Component {
 
         _getTotalData(this,getTotalUrl,'all');
         _getBlogData(this,getBlogUrl,'all',1,this.state.pageNum)
-        // _getBlogData(this,getBlogUrl,'all',1,this.state.pageNum)
-        // this.props.dispatch(getBlogData(`${getBlogUrl}?type=all&num=1&pageNum=${this.state.pageNum}`))
-        // this.props.dispatch(getTotalData(`${getTotalUrl}?type=all`))
     }
     onChange(page, pageSize){
         console.log(page,pageSize)
         this.setState({
             currentPage:page
         })
-        // this.props.dispatch(getBlogData(`${getBlogUrl}?type=all&num=${page}&pageNum=${this.state.pageNum}`))
         this.state.inputVal
             ? _getBlogData(this,getBlogUrl,'title',page,this.state.pageNum,this.state.inputVal)
             : _getBlogData(this,getBlogUrl,'all',page,this.state.pageNum)
@@ -76,36 +73,6 @@ class Blog extends Component {
     render () {
         const total = this.props.total&&this.props.total[0]&&this.props.total[0].total? this.props.total[0].total : 0;
 
-        const listData = []
-        this.props.testAsync.forEach((v, i) => {
-            let {id, title, createTime, week, visitor, like, img, type, user} = v
-            listData.push(
-                Object.assign({}, {id, title, createTime, week, visitor, like, img, type, user}, {
-                    href: 'http://ant.design',
-                    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-                    description: 'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-                    content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-                })
-            )
-        })
-        /* for (let i = 0; i < 23; i++) {
-             listData.push({
-                 href: 'http://ant.design',
-                 id:i,
-                 title: `ant design part ${i}`,
-                 avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-                 description: 'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-                 content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-             });
-         }*/
-
-        const IconText = ({type, text}) => (
-            <span>
-    <Icon type={type} style={{marginRight: 8}}/>
-                {text}
-  </span>
-        )
-
         return (
             <div className="Blog">
                 <Header/>
@@ -123,43 +90,8 @@ class Blog extends Component {
                             </Col>
                         </Row>
                         <div style={{background: '#fff', padding: 24, minHeight: 380}}>
-                            <List
-                                itemLayout="vertical"
-                                size="large"
-                                /*pagination={{
-                                    onChange: (page) => {
-                                        console.log(page)
-                                    },
-                                    pageSize: 10,
-                                }}*/
-                                dataSource={listData}
-                                footer={<div><b>ant design</b> footer part</div>}
-                                renderItem={item => (
-                                    <List.Item
-                                        key={item.title}
-                                        actions={[
-                                            formatTime(item.createTime),
-                                            <IconText type="star-o" text="156"/>,
-                                            <IconText type="like-o" text={item.like}/>,
-                                            <IconText type="message" text="2"/>,
-                                            <IconText type="eye-o" text={item.visitor}/>,
-                                        ]}
-                                        // extra={<img width={272} alt="logo"
-                                        //             src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"/>}
-                                    >
-                                        <List.Item.Meta
-                                            avatar={<Avatar src={item.avatar}/>}
-                                            title={
-                                                <Link to={`/Detail/${item.id}`}>
-                                                    {item.title}
-                                                </Link>
-                                            }
-                                            // description={item.description}
-                                        />
-                                        {/*{item.content}*/}
-                                    </List.Item>
-                                )}
-                            />
+                            <ListTitle {...this.props} />
+
                             <Pagination total={total} itemRender={this.itemRender.bind(this)} onChange={this.onChange.bind(this)} />
                         </div>
                     </Content>

@@ -28,7 +28,6 @@ const history = createHistory()
 class App extends Component {
     render() {
         const {dispatch, testAsync} = this.props;
-        console.log(this.props)
         return (
             <ConnectedRouter history={history}>
                 <div>

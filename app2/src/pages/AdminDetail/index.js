@@ -12,6 +12,8 @@ import {postAdminDetailData,postAdminDetailUrl} from '../../contains/backEnd'
 import {updateHtml,spaceAdd,NbspToSpace} from '../../until';
 import Markeder from '../../components/Markeder';
 import TopTips from '../../components/TopTips';
+import {formatTime} from '../../until';
+import ArticleTitle from '../../components/ArticleTitle';
 
 var html2markdown = require('html2markdown');
 var converter = require('html-to-markdown');
@@ -21,28 +23,12 @@ const TabPane = Tabs.TabPane;
 class AdminDetail extends Component {
     constructor() {
         super()
-        this.state = {
-            previewContent: '',
-            previewHtmlContent:'',
-            txt:'该文档不支持html-to-markdown',
-            isSupport:true,
-            id:'',
-            title:''
-        }
     }
 
     componentWillMount() {
-        console.log(this.props)
         if(this.props.location.pathname==='/PostArticle')return;
         let adminDetailId=/AdminDetail\/(\d+)/.exec(this.props.location.pathname)[1]
         this.props.dispatch(getDetailData(`${getDetailUrl}?id=${adminDetailId}`))
-        let {content,createTime,id,img, lastModify, like, modifyCount, recommend, short, title, type, url, user, visitor, week} =
-            this.props.detail && this.props.detail[0] ? this.props.detail[0] : {};
-        content=content?decodeURIComponent(content):'正在加载......';
-        this.setState({
-            markData:content,
-            title:title
-        })
     }
 
 
@@ -54,10 +40,8 @@ class AdminDetail extends Component {
                     <Content style={{padding: '0 50px', marginTop: 64}}>
                         <TopTips/>
                         <div style={{background: '#fff', padding: 24, minHeight: 380}}>
-                            <h2>{this.state.title}</h2>
-                            <Divider/>
-                            {/*<Markeder  />*/}
-                            <Markeder {...Object.assign({},this.props,this.state)} />
+                            <ArticleTitle {...this.props} />
+                            <Markeder {...Object.assign({},this.props)} />
                         </div>
                     </Content>
                 </Layout>

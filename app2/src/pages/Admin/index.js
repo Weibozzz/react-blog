@@ -33,8 +33,6 @@ class Admin extends Component {
     }
     componentWillMount() {
         _getAdminBlogData(this,getAdminBlogUrl,'all',1,this.state.pageNum)
-        // this.props.dispatch(getAdminBlogData(`${getAdminBlogUrl}?type=all&num=1&pageNum=${this.state.pageNum}`))
-        // this.props.dispatch(getTotalData(`${getTotalUrl}?type=all`))
         _getTotalData(this,getTotalUrl,'all')
     }
     itemRender(current, type, originalElement) {
@@ -50,13 +48,9 @@ class Admin extends Component {
         this.setState({
             currentPage:page
         })
-        console.log(page,pageSize)
-        // if(thi)
         this.state.inputVal
             ?  _getAdminBlogData(this,getAdminBlogUrl,'title',page,this.state.pageNum,this.state.inputVal)
             :  _getAdminBlogData(this,getAdminBlogUrl,'all',page,this.state.pageNum)
-
-        // this.props.dispatch(getAdminBlogData(`${getAdminBlogUrl}?type=all&num=${page}&pageNum=${this.state.pageNum}`))
     }
     onSearch(val){
         this.setState({
@@ -142,7 +136,6 @@ class Admin extends Component {
 }
 
 const select = (state) => {
-    console.log(state)
     return {
         adminBlog: state.adminBlog,
         total:state.total

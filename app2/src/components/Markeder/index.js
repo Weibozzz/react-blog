@@ -26,7 +26,6 @@ class MarkedComponent extends Component{
         }
     }
     componentWillMount(){
-
         let {content,createTime,id,img, lastModify, like, modifyCount, recommend, short, title, type, url, user, visitor, week} =
             this.props.detail && this.props.detail[0] ? this.props.detail[0] : {};
         let {pathname} = this.props.location;
@@ -86,21 +85,28 @@ class MarkedComponent extends Component{
         }
     }
     render(){
-
+        console.log(this.state)
+        let cont;
+        if(this.state.isPostArticle){
+            cont=''
+        }else if(this.state.isAdminDetail){
+            cont=this.props.detail.length?decodeURIComponent(this.props.detail[0].content):'无内容'
+        }
         return (
 
             <div>
                 <Tabs>
-                    <TabPane tab="marked" key="1">
-                        <TextArea rows={15}
-                             onInput={this.onContentChange.bind(this)} value={this.state.markData} />
-                    </TabPane>
                     <TabPane tab="预览" key="2">
                         <div dangerouslySetInnerHTML={{__html: this.state.previewContent}}></div>
                     </TabPane>
                     <TabPane tab="html" key="3">
                         <Button onClick={this.onSubmitDetail.bind(this)}  type={this.props.isSupport?"primary":"danger"}>修改</Button>
                         <div ref="textHtml">{this.state.previewHtmlContent}</div>
+                    </TabPane>
+                    <TabPane tab="marked" key="4">
+                        <TextArea rows={15}
+                                  onInput={this.onContentChange.bind(this)}
+                                  defaultValue={this.props.detail.length?cont:'无内容'} />
                     </TabPane>
                 </Tabs>
             </div>

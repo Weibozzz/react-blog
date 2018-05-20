@@ -5,11 +5,13 @@ import { connect } from 'react-redux'
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { getDetail } from '../../actions'
-import {formatTime} from '../../until';
+import {formatTime,getArticleInfo} from '../../until';
+import ArticleTitle from '../../components/ArticleTitle';
 import TopTips from '../../components/TopTips';
 
 import marked from 'marked'
 import {getDetailData,getDetailUrl,getCommentsData,getCommentsUrl} from '../../contains/fontEnd'
+import './index.css';
 const {  Content } = Layout;
 
 var html2markdown = require('html2markdown');
@@ -48,20 +50,7 @@ class Detail extends Component {
         let {
             content,
             createTime,
-            id,
-            img,
-            lastModify,
-            like,
-            modifyCount,
-            recommend,
-            short,
-            title,
-            type,
-            url,
-            user,
-            visitor,
-            week
-        }=this.props.detail&&this.props.detail[0]?this.props.detail[0]:{};
+        }=getArticleInfo(this.props.detail);;
 
         return (
             <div className="Detail">
@@ -70,15 +59,7 @@ class Detail extends Component {
                     <Content style={{ padding: '0 50px', marginTop: 64 }}>
                         <TopTips/>
                         <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
-                            <h2>{title}</h2>
-                            <Divider/>
-                            <ul className="clearfix detail-info" >
-                                <li className="fl">发布时间：{formatTime(createTime)}</li>
-                                <li className="fl">作者：{user}</li>
-                                <li className="fl">浏览次数：{visitor}</li>
-                                <li className="fl">最后修改：{formatTime(lastModify)}</li>
-                                <li className="fl">修改次数：{modifyCount}</li>
-                            </ul>
+                            <ArticleTitle {...this.props} />
                             <div
                                 dangerouslySetInnerHTML={{__html:marked(getHtml(decodeURIComponent(content),createTime), {breaks: true})}}
                             ></div>
