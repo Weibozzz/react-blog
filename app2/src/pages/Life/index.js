@@ -74,23 +74,15 @@ class Life extends Component {
                                         <List.Item.Meta
                                             avatar={<Avatar src={item.avatar} />}
                                             title={
-                                                <HashRouter >
-                                                    <div>
-                                                        <Link to={`/Detail/${item.id}`}>
-                                                            {item.title}
-                                                        </Link>
-                                                    </div>
-                                                </HashRouter>
+                                                <Link to={`/Detail/${item.id}`}>
+                                                    {item.title}
+                                                </Link>
                                             }
                                             description={item.short}
                                         />
-                                        <HashRouter >
-                                            <div>
-                                                <Link to={`/Detail/${item.id}`}>
-                                                    阅读全文......
-                                                </Link>
-                                            </div>
-                                        </HashRouter>
+                                        <Link to={`/Detail/${item.id}`}>
+                                            阅读全文......
+                                        </Link>
                                     </List.Item>
                                 )}
                             />

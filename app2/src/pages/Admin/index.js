@@ -78,9 +78,7 @@ class Admin extends Component {
             v === 'title' ?
                 {
                     title: v, dataIndex: v, render: (text,row,index) =>
-                        <HashRouter>
-                            <Link to={`/AdminDetail/${row.id}`}>{text}</Link>
-                        </HashRouter>
+                    <Link to={`/AdminDetail/${row.id}`}>{text}</Link>
                 } :
                 {title: v, dataIndex: v}
         )) : []

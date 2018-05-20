@@ -117,13 +117,9 @@ class Blog extends Component {
                                 <Search placeholder="input search text" onSearch={this.onSearch.bind(this)} enterButton="Search" size="large" />
                             </Col>
                             <Col className="gutter-row" span={2}>
-                                <HashRouter >
-                                    <div>
-                                        <Link to={`/PostArticle`}>
-                                            <Button size="large" type="primary">发布文章</Button>
-                                        </Link>
-                                    </div>
-                                </HashRouter>
+                                <Link to={`/PostArticle`}>
+                                    <Button size="large" type="primary">发布文章</Button>
+                                </Link>
                             </Col>
                         </Row>
                         <div style={{background: '#fff', padding: 24, minHeight: 380}}>
@@ -154,13 +150,9 @@ class Blog extends Component {
                                         <List.Item.Meta
                                             avatar={<Avatar src={item.avatar}/>}
                                             title={
-                                                <HashRouter >
-                                                    <div>
-                                                        <Link to={`/Detail/${item.id}`}>
-                                                            {item.title}
-                                                        </Link>
-                                                    </div>
-                                                </HashRouter>
+                                                <Link to={`/Detail/${item.id}`}>
+                                                    {item.title}
+                                                </Link>
                                             }
                                             // description={item.description}
                                         />
