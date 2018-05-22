@@ -10,15 +10,16 @@
     "history": "^4.7.2",
     "html-to-markdown": "^1.0.0",
     "html2markdown": "^1.1.0",
+    "marked": "^0.3.19",
     "qs": "^6.5.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "react-lz-editor": "^0.12.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.2.0",
-    "marked": "^0.3.19"
+    "redux-thunk": "^2.2.0"
   },
   "scripts": {
     "start": "node scripts/start.js",

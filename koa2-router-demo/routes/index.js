@@ -69,7 +69,7 @@ router.get('/detail', async (ctx, next) => {
     let {id} = getURLParameters(ctx.originalUrl)
     await querySql(getDetailSql(id)).then((data) => {
         // console.log(data)
-        ctx.body = data
+        ctx.body = spaceAdd(data)
         // ctx.body = spaceAdd(data)
     })
 })

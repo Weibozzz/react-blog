@@ -133,7 +133,7 @@ class MarkedComponent extends Component{
                     <TabPane tab="marked" key="4">
                         <TextArea rows={15}
                                   onInput={this.onContentChange.bind(this)}
-                                  defaultValue={this.props.detail.length?cont:'无内容'} />
+                                  defaultValue={cont} />
                     </TabPane>
                 </Tabs>
             </div>

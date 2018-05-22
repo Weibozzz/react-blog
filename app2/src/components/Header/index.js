@@ -51,7 +51,11 @@ class TopNav extends Component {
                                         生活与创作
                                     </Link>
                                 </Menu.Item>
-                                <Menu.Item key="5">建议与反馈</Menu.Item>
+                                <Menu.Item key="5">
+                                    <Link to="/Test">
+                                        建议与反馈
+                                    </Link>
+                                </Menu.Item>
                             </Menu>
                         </Col>
                         <Col span={3}>

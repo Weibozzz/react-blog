@@ -11,6 +11,7 @@ import AdminDetail from './pages/AdminDetail/index';
 import PostArticle from './pages/PostArticle';
 import Life from './pages/Life';
 import Login from './pages/Login';
+import Test from './pages/Test/index';
 import {
     BrowserRouter as Router,
     HashRouter,
@@ -40,6 +41,7 @@ class App extends Component {
                     <Route path="/PostArticle" component={PostArticle}/>
                     <Route path="/Login" component={Login}/>
                     <Route path="/Life" component={Life}/>
+                    <Route path="/Test" component={Test}/>
                     <Route path="/Detail/:id" component={Detail}/>
                     <Route path="/AdminDetail/:id" component={AdminDetail}/>
                     <BackTop />
