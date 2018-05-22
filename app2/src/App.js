@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Blog from './pages/Blog/index';
 import Admin from './pages/Admin/index';
+import {BackTop} from 'antd';
 
 import {ConnectedRouter, routerReducer, routerMiddleware, push} from 'react-router-redux'
 import Detail from './pages/Detail/index';
@@ -19,6 +20,8 @@ import {
 import './App.css';
 import createHistory from 'history/createBrowserHistory'
 import {asyncTest} from './actions';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 const history = createHistory()
 
@@ -31,6 +34,7 @@ class App extends Component {
         return (
             <ConnectedRouter history={history}>
                 <div>
+                    <Header />
                     <Route exact path="/" component={Blog}/>
                     <Route path="/Admin" component={Admin}/>
                     <Route path="/PostArticle" component={PostArticle}/>
@@ -38,6 +42,8 @@ class App extends Component {
                     <Route path="/Life" component={Life}/>
                     <Route path="/Detail/:id" component={Detail}/>
                     <Route path="/AdminDetail/:id" component={AdminDetail}/>
+                    <BackTop />
+                    <Footer />
                 </div>
             </ConnectedRouter>
         );

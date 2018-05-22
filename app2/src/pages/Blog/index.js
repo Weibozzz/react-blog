@@ -75,10 +75,8 @@ class Blog extends Component {
 
         return (
             <div className="Blog">
-                <Header/>
                 <Layout>
-                    <Content style={{padding: '0 50px', marginTop: 64}}>
-                        <TopTips/>
+                    <Content style={{padding: '0 50px'}}>
                         <Row gutter={16}>
                             <Col className="gutter-row" span={22}>
                                 <Search placeholder="input search text" onSearch={this.onSearch.bind(this)} enterButton="Search" size="large" />
@@ -96,7 +94,6 @@ class Blog extends Component {
                         </div>
                     </Content>
                 </Layout>
-                <Footer/>
             </div>
         )
     }

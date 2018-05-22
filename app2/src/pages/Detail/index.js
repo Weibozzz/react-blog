@@ -2,16 +2,14 @@ import React, { Component } from 'react';
 import { Layout, Menu, Breadcrumb ,Row,Col,BackTop,Card } from 'antd';
 import { List, Avatar, Icon ,Divider} from 'antd';
 import { connect } from 'react-redux'
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
 import { getDetail } from '../../actions'
 import {formatTime,getArticleInfo,getHtml,OldTime} from '../../until';
-// import ArticleTitle from '../../components/ArticleTitle';
+import ArticleTitle from '../../components/ArticleTitle';
 import TopTips from '../../components/TopTips';
 
 import marked from 'marked'
 import {getDetailData,getDetailUrl,getCommentsData,getCommentsUrl} from '../../contains/fontEnd'
-// import './index.css';
+import './index.css';
 
 const {  Content } = Layout;
 
@@ -31,12 +29,10 @@ class Detail extends Component {
         console.log(decodeURIComponent(content))
         return (
             <div className="Detail">
-                <Header/>
                 <Layout>
-                    <Content style={{ padding: '0 50px', marginTop: 64 }}>
-                        <TopTips/>
+                    <Content style={{ padding: '0 50px'}}>
                         <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
-                            {/*<ArticleTitle {...this.props} />*/}
+                            <ArticleTitle {...this.props} />
                             <div
                                 dangerouslySetInnerHTML={{__html:
                                         createTime>OldTime?
@@ -66,9 +62,7 @@ class Detail extends Component {
                             }
                         </div>
                     </Content>
-                    <BackTop />
                 </Layout>
-                <Footer/>
             </div>
         );
     }

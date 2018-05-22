@@ -29,16 +29,13 @@ class Life extends Component {
     render () {
         return (
             <div className="Blog">
-                <Header/>
                 <Layout>
-                    <Content style={{padding: '0 50px', marginTop: 64}}>
-                        <TopTips/>
+                    <Content style={{padding: '0 50px'}}>
                         <div style={{background: '#fff', padding: 24, minHeight: 380}}>
                             <ListTitle {...this.props}/>
                         </div>
                     </Content>
                 </Layout>
-                <Footer/>
             </div>
         )
     }

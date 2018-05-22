@@ -3,6 +3,7 @@ import {Layout, Menu, Breadcrumb, Row, Col} from 'antd';
 import {
     Link
 } from 'react-router-dom'
+import TopTips from '../../components/TopTips';
 
 const {Header, Content, Footer} = Layout;
 
@@ -91,6 +92,9 @@ class TopNav extends Component {
                         <Col span={2}/>
                     </Row>
                 </Header>
+                <Content style={{padding: '0 50px', marginTop: 64}}>
+                    <TopTips/>
+                </Content>
             </Layout>
         );
     }

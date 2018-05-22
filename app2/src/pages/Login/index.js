@@ -59,11 +59,8 @@ class Login extends Component {
 
         return (
             <div className="Login">
-                <Header/>
                 <Layout>
-                    <Content style={{padding: '0 50px', marginTop: 64}}>
-                        <TopTips/>
-
+                    <Content style={{padding: '0 50px'}}>
                         <Row>
                             <Col span={8}></Col>
                             <Col span={8}>
@@ -105,7 +102,6 @@ class Login extends Component {
                         </Row>
                     </Content>
                 </Layout>
-                <Footer/>
             </div>
         )
     }

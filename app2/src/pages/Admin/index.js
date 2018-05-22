@@ -93,11 +93,8 @@ class Admin extends Component {
 
         return (
             <div className="Admin">
-                <Header/>
-
                 <Layout>
-                    <Content style={{padding: '0 50px', marginTop: 64}}>
-                        <TopTips/>
+                    <Content style={{padding: '0 50px'}} >
                         <Search placeholder="input search text" onSearch={this.onSearch.bind(this)} enterButton="Search" size="large" />
                         <div style={{background: '#fff', padding: 24, minHeight: 380}}>
                             <Tabs defaultActiveKey="1" onChange={callback}>
@@ -129,7 +126,6 @@ class Admin extends Component {
                         </div>
                     </Content>
                 </Layout>
-                <Footer/>
             </div>
         );
     }

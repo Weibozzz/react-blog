@@ -53,20 +53,8 @@ class PostArticle extends Component {
     render() {
         return (
             <div className="PostArticle">
-                <Header/>
                 <Layout>
-                    <Content style={{padding: '0 50px', marginTop: 64}}>
-                        <Alert
-                            message="博客正在重构和开发中......"
-                            type="warning"
-                            closable
-                            banner={true}
-                        />
-                        <Breadcrumb style={{margin: '16px 0'}}>
-                            <Breadcrumb.Item>Home</Breadcrumb.Item>
-                            <Breadcrumb.Item>List</Breadcrumb.Item>
-                            <Breadcrumb.Item>App</Breadcrumb.Item>
-                        </Breadcrumb>
+                    <Content style={{padding: '0 50px'}}>
                         <div>
                             <Row>
                                 <Col span={20}>
@@ -111,7 +99,6 @@ class PostArticle extends Component {
                         <Button type="primary" onClick={this.onSubmit.bind(this)}>提交</Button>
                     </Content>
                 </Layout>
-                <Footer/>
             </div>
         )
     }
