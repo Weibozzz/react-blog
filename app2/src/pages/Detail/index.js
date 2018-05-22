@@ -5,40 +5,17 @@ import { connect } from 'react-redux'
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { getDetail } from '../../actions'
-import {formatTime,getArticleInfo} from '../../until';
-import ArticleTitle from '../../components/ArticleTitle';
+import {formatTime,getArticleInfo,getHtml,OldTime} from '../../until';
+// import ArticleTitle from '../../components/ArticleTitle';
 import TopTips from '../../components/TopTips';
 
 import marked from 'marked'
 import {getDetailData,getDetailUrl,getCommentsData,getCommentsUrl} from '../../contains/fontEnd'
-import './index.css';
+// import './index.css';
+
 const {  Content } = Layout;
 
 var html2markdown = require('html2markdown');
-const TIME = 1526625828;
-const getHtml=(str,time)=>{
-    if(TIME>time){ //这是曾经的文章
-        return str? str.replace(/@quot;|@apos;|\+/g,function(str){
-                if(str==='@quot;'){
-                    return '"'
-                }else if(str==="@apos;") {
-                    return "'"
-                }else if(str==="+") {
-                    return "&nbsp;"
-                }
-            })
-            :null
-    }else {
-        return str? str.replace(/@quot;|@apos;/g,function(str){
-                if(str==='@quot;'){
-                    return '"'
-                }else if(str==="@apos;") {
-                    return "'"
-                }
-            })
-            :null
-    }
-}
 class Detail extends Component {
     componentWillMount () {
         let {id} =this.props.match.params ;
@@ -50,8 +27,8 @@ class Detail extends Component {
         let {
             content,
             createTime,
-        }=getArticleInfo(this.props.detail);;
-
+        }=getArticleInfo(this.props.detail);
+        console.log(decodeURIComponent(content))
         return (
             <div className="Detail">
                 <Header/>
@@ -59,9 +36,13 @@ class Detail extends Component {
                     <Content style={{ padding: '0 50px', marginTop: 64 }}>
                         <TopTips/>
                         <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
-                            <ArticleTitle {...this.props} />
+                            {/*<ArticleTitle {...this.props} />*/}
                             <div
-                                dangerouslySetInnerHTML={{__html:marked(getHtml(decodeURIComponent(content),createTime), {breaks: true})}}
+                                dangerouslySetInnerHTML={{__html:
+                                        createTime>OldTime?
+                                            marked(getHtml(decodeURIComponent(content),createTime), {breaks: true})
+                                            :getHtml(decodeURIComponent(content),createTime)
+                                }}
                             ></div>
                         </div>
                         <div style={{display:this.props.comments.length?'block':'none'}}>

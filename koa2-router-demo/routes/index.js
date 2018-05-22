@@ -63,7 +63,7 @@ router.get('/commentsTotal', async (ctx, next) => {
         ctx.body = data
     })
 })
-const spaceAdd = str=>str&&str.replace(/\+/g,'&nbsp;')
+const spaceAdd = str=>str&&str.replace(/\+/g,' ')
 router.get('/detail', async (ctx, next) => {
     ctx.set('Access-Control-Allow-Origin', '*')
     let {id} = getURLParameters(ctx.originalUrl)

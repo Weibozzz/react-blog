@@ -13,7 +13,7 @@ import {updateHtml,spaceAdd,NbspToSpace} from '../../until';
 import Markeder from '../../components/Markeder';
 import TopTips from '../../components/TopTips';
 import {formatTime} from '../../until';
-import ArticleTitle from '../../components/ArticleTitle';
+// import ArticleTitle from '../../components/ArticleTitle';
 
 var html2markdown = require('html2markdown');
 var converter = require('html-to-markdown');
@@ -40,7 +40,7 @@ class AdminDetail extends Component {
                     <Content style={{padding: '0 50px', marginTop: 64}}>
                         <TopTips/>
                         <div style={{background: '#fff', padding: 24, minHeight: 380}}>
-                            <ArticleTitle {...this.props} />
+                            {/*<ArticleTitle {...this.props} />*/}
                             <Markeder {...Object.assign({},this.props)} />
                         </div>
                     </Content>

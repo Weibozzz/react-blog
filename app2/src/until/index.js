@@ -49,3 +49,19 @@ export const getArticleInfo = detailArr=>{
     }*/
     return rest
 }
+export const OldTime = 1526625828;  // 2018-05-18 14:43 星期五
+export const getHtml=(str,newTime)=>{
+    if(OldTime>newTime){ //这是曾经的文章
+        return str? str
+            :null
+    }else {
+        return str? str.replace(/@quot;|@apos;/g,function(str){
+                if(str==='@quot;'){
+                    return '"'
+                }else if(str==="@apos;") {
+                    return "'"
+                }
+            })
+            :null
+    }
+}

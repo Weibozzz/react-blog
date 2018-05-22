@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {Tabs,Button,Input,message} from 'antd';
-import {NbspToSpace, updateHtml} from "../../until";
+import {NbspToSpace, updateHtml,OldTime} from "../../until";
 import {connect} from 'react-redux'
 import {getDetailData, getDetailUrl,postArticleData,postArticleUrl} from "../../contains/fontEnd";
 import {postAdminDetailData, postAdminDetailUrl} from "../../contains/backEnd";
@@ -23,6 +23,7 @@ class MarkedComponent extends Component{
             id:null,
             isAdminDetail:false,
             isPostArticle:false,
+            isUpdate:true   //如果以前的写文章不支持markeddown转为false，则不能修改
         }
     }
     componentWillMount(){
@@ -58,6 +59,10 @@ class MarkedComponent extends Component{
 
         let txt = this.refs.textHtml.innerText;
         if(this.state.isAdminDetail){
+            if(!this.state.isUpdate){
+                message.warning('不支持html-to-markdown,所以不支持修改功能')
+                return;
+            }
             let id=/AdminDetail\/(\d+)/.exec(this.props.location.pathname)[1]
             console.log(this.props,id,this.props.location.pathname)
             message.success('这是修改文章')
@@ -66,9 +71,17 @@ class MarkedComponent extends Component{
                 message.error('不能提交')
                 return;
             }
+            try {
+                html2markdown(this.state.markData) 
+            } catch (err) {
+                message.warning('err不支持html-to-markdown,所以不支持修改功能')
+                return
+            }
             message.warning('不一定修改成功，待检测')
+
             this.props.dispatch(postAdminDetailData(postAdminDetailUrl,{content:encodeURIComponent(this.state.markData),id:id}))
-        }else if(this.state.isPostArticle){
+        }else if(this.state.isPostArticle)
+        {
             message.success('这是发表文章')
             let {selectVal,
                 titleVal,
@@ -85,12 +98,26 @@ class MarkedComponent extends Component{
         }
     }
     render(){
-        console.log(this.state)
         let cont;
         if(this.state.isPostArticle){
             cont=''
         }else if(this.state.isAdminDetail){
-            cont=this.props.detail.length?decodeURIComponent(this.props.detail[0].content):'无内容'
+            if(this.props.detail.length){
+                console.log(this.props.detail[0].createTime>OldTime)
+                if(this.props.detail[0].createTime>OldTime){
+                    cont=decodeURIComponent(this.props.detail[0].content)  //新的文章
+                }else {
+
+                    try {
+                        cont= html2markdown(decodeURIComponent(this.props.detail[0].content)) //旧的文章
+                    } catch (err) {
+                        message.warning('不支持html-to-markdown,所以不支持修改功能')
+                        cont= decodeURIComponent(this.props.detail[0].content) //不支持html-to-markdown
+                    }
+                }
+            }else {
+                cont="无内容"
+            }
         }
         return (
 
