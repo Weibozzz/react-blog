@@ -71,31 +71,31 @@ React+React-router+redux+antd+axios+webpack+es6+koa
 ```
 ## 选用的技术栈
 ### 前端
-在前端三大框架的选择，Angular,React,Vue,使用了前端最为流行的React框架，其实当时可以用Vue,
+在前端三大框架的选择，`Angular,React,Vue`,使用了前端最为流行的React框架，其实当时可以用Vue,
 因为公司用的Vue也比较熟悉，用的比较多，也简单快速，没有接触过React的我，只闻其牛，也给自己一个挑战，学习其中的思想，
-Angular是因为在Github的star远远落后于前两者，当然后面会了解它，目前就用React了配合用了阿里的antd。
+`Angular`是因为在Github的star远远落后于前两者，当然后面会了解它，目前就用React了配合用了阿里的`antd`。
 ### 后端
-重构博客嘛，以前用php写的后台，所以略懂一些，作为一个前端开发，目标就是全栈嘛，选用了最为流行的node,也用了目前最为流行的koa作为
-后端配合mysql。
+重构博客嘛，以前用php写的后台，所以略懂一些，作为一个前端开发，目标就是全栈嘛，选用了最为流行的`node`,也用了目前最为流行的koa作为
+后端配合`mysql`。
 ### 文本编辑
-博客，那当然要进行发表文章和修改文章，我选用了Markdown语法，
+博客，那当然要进行发表文章和修改文章，我选用了`Markdown`语法，
 借助了marked库。
 ### 目前博客存在的问题
 文章发布和文章修改，因为文章可能比较长，还有问题就是存入数据库的时候
 有特殊字符需要更改，所以有时候会失败，正在修改中......
 ### 运行
 1.克隆代码
-```
+```bash
 git clone
 ```
 2.进入后端启动服务，当然要安装数据库mysql了
-```
+```bash
 cd koa2-router-demo
 npm install 
 npm start
-```
+```bash
 3.进入前端文件
-```
+```bash
 cd app2
 npm install
 npm start
