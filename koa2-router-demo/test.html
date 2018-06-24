@@ -3,17 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        html,body,.a{
+            height: 100%;
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .a{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .b2{
+            background-color: orange;
+            flex-grow: 1;
+        }
+    </style>
 </head>
 <body>
 
-<div>
-
+<div class="a">
+    <div class="b1">b1</div>
+    <div class="b2">b2</div>
+    <div class="b3">b3</div>
 </div>
 
-
+<script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
 <script>
-    const spaceAdd = str=>str.replace(/\+/g,'&nbsp;')
-    console.log(spaceAdd('dsjfj+kdjsj+'))
+    var url = 'http://';
 </script>
 </body>
 </html>

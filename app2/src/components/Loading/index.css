@@ -1,0 +1,10 @@
+.loading-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    background-color: #f0f2f5;
+}
+.spin-wrapper{
+    height: 100px;
+}

@@ -1,4 +1,5 @@
 @import '~antd/dist/antd.css';
+
 pre{
     background-color: #f5f5f5;
     border: 1px solid #ccc;
@@ -20,4 +21,16 @@ ul{
 }
 li{
     list-style: none;
+}
+#root,.container{
+    height: 100%;
+    min-height: 100%;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f2f5;
+}
+.mid-content{
+    flex-grow: 1;
 }

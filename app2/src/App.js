@@ -34,16 +34,18 @@ class App extends Component {
         const {dispatch, testAsync} = this.props;
         return (
             <ConnectedRouter history={history}>
-                <div>
+                <div className="container">
                     <Header />
-                    <Route exact path="/" component={Blog}/>
-                    <Route path="/Admin" component={Admin}/>
-                    <Route path="/PostArticle" component={PostArticle}/>
-                    <Route path="/Login" component={Login}/>
-                    <Route path="/Life" component={Life}/>
-                    <Route path="/Test" component={Test}/>
-                    <Route path="/Detail/:id" component={Detail}/>
-                    <Route path="/AdminDetail/:id" component={AdminDetail}/>
+                    <div className="mid-content">
+                        <Route exact path="/" component={Blog}/>
+                        <Route path="/Admin" component={Admin}/>
+                        <Route path="/PostArticle" component={PostArticle}/>
+                        <Route path="/Login" component={Login}/>
+                        <Route path="/Life" component={Life}/>
+                        <Route path="/Test" component={Test}/>
+                        <Route path="/Detail/:id" component={Detail}/>
+                        <Route path="/AdminDetail/:id" component={AdminDetail}/>
+                    </div>
                     <BackTop />
                     <Footer />
                 </div>

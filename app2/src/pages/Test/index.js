@@ -1,59 +1,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LzEditor from 'react-lz-editor'
-class Test extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            htmlContent: `<h1>Yankees, Peeking at the Red Sox, Will Soon Get an Eyeful</h1>
-                <p>Whenever Girardi stole a glance, there was rarely any good news for the Yankees. While Girardi’s charges were clawing their way to a split of their four-game series against the formidable Indians, the Boston Red Sox were plowing past the rebuilding Chicago White Sox, sweeping four games at Fenway Park.</p>`,
-            markdownContent: "## HEAD 2 \n markdown examples \n ``` welcome ```",
-            responseList: [],
-            responseList2: [],
-        }
-        this.receiveHtml=this.receiveHtml.bind(this);
-        this.receiveMarkdown=this.receiveMarkdown.bind(this);
-    }
-    receiveHtml(content) {
-        console.log("recieved HTML content", content);
-        this.setState({responseList:[]});
-    }
-    receiveMarkdown(content) {
-        console.log("recieved HTML content", content);
-        this.setState({responseList2:[]});
-    }
-    render() {
-        let policy = "";
-        const uploadProps = {
-            action: "http://v0.api.upyun.com/devopee",
-            onChange: this.onChange,
-            listType: 'picture',
-            fileList: this.state.responseList,
-            data: (file) => {
+const ReactMarkdown = require('react-markdown')
 
-            },
-            multiple: true,
-            beforeUpload: this.beforeUpload,
-            showUploadList: true
-        }
+const input = '\n' +
+  '# Live demo\n' +
+  '\n' +
+  'Changes are automatically rendered as you type.\n' +
+  '\n' +
+  '* Implements [GitHub Flavored Markdown](https://github.github.com/gfm/)\n' +
+  '* Renders actual, "native" React DOM elements\n' +
+  '* Allows you to escape or skip HTML (try toggling the checkboxes above)\n' +
+  '* If you escape or skip the HTML, no `dangerouslySetInnerHTML` is used! Yay!\n' +
+  '\n' +
+  '## HTML block below\n' +
+  '\n' +
+  '<blockquote>\n' +
+  '  This blockquote will change based on the HTML settings above.\n' +
+  '</blockquote>\n' +
+  '\n' +
+  '## How about some code?\n' +
+  '```js\n' +
+  'var React = require(\'react\');\n' +
+  'var Markdown = require(\'react-markdown\');\n' +
+  '\n' +
+  'React.render(\n' +
+  '  <Markdown source="# Your markdown here" />,\n' +
+  '  document.getElementById(\'content\')\n' +
+  ');\n' +
+  '```'
+class Test extends React.Component {
+    render() {
         return (
             <div>
-                <div>Editor demo 1 (use default html format ):
-                </div>
-                <LzEditor active={true} importContent={this.state.htmlContent} cbReceiver={this.receiveHtml}
-                          lang="en"/>
-                <br/>
-                <div>Editor demo 2 (use markdown format ):
-                </div>
-                <LzEditor
-                    active={true}
-                    importContent={this.state.markdownContent}
-                    cbReceiver={this.receiveMarkdown}
-                    image={true}
-                    video={false}
-                    audio={false}
-                    uploadProps={uploadProps}
-                    convertFormat="markdown"/>
+                <ReactMarkdown source={input} />,
             </div>
         );
     }

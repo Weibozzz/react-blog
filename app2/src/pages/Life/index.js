@@ -17,6 +17,7 @@ import Detail from '../Detail'
 import TopTips from '../../components/TopTips';
 import {formatTime} from "../../until";
 import ListTitle from '../../components/ListTitle';
+import Loading from '../../components/Loading';
 
 const {Content} = Layout
 
@@ -29,6 +30,7 @@ class Life extends Component {
     render () {
         return (
             <div className="Blog">
+                <Loading data={this.props.life}/>
                 <Layout>
                     <Content style={{padding: '0 50px'}}>
                         <div style={{background: '#fff', padding: 24, minHeight: 380}}>

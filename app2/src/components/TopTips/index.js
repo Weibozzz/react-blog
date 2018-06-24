@@ -18,7 +18,7 @@ class TopTips extends Component {
                     banner={true}
                 />
                 <div>
-                    <Button href="https://github.com/Weibozzz/react-blog" icon="github">Star</Button>
+                    <Button href="https://github.com/Weibozzz/react-blog" icon="github">Github</Button>
                 </div>
                 <Breadcrumb style={{margin: '16px 0'}}>
                     <Breadcrumb.Item>网站首页</Breadcrumb.Item>
